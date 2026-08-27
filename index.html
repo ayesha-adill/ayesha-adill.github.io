@@ -1,57 +1,595 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Ayesha Adil</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ayesha Adil — Mechanical &amp; Biomedical Design Engineer</title>
+<meta name="description" content="Portfolio of Ayesha Adil — Mechanical and Biomedical Design Engineer. Patent-pending medical devices, CAD, FEA, and product design.">
 
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      max-width: 800px;
-      margin: 60px auto;
-      line-height: 1.6;
-      padding: 20px;
-    }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
-    h1 {
-      font-size: 42px;
-    }
+<script type="module" src="https://unpkg.com/@google/model-viewer@3.5.0/dist/model-viewer.min.js"></script>
 
-    a {
-      color: #2563eb;
-      text-decoration: none;
-    }
-  </style>
+<style>
+  :root{
+    --navy-deep:   #101c34;
+    --navy:        #16223f;
+    --navy-panel:  #1c2b4d;
+    --line:        rgba(237,239,243,0.14);
+    --line-strong: rgba(237,239,243,0.28);
+    --chalk:       #edeff3;
+    --chalk-dim:   #aab3c8;
+    --brass:       #c9a15a;
+    --brass-dim:   #9c8158;
+    --teal:        #52b8ab;
+    --teal-dim:    #3d8a80;
+    --radius: 2px;
+    --maxw: 1180px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--navy-deep);
+    color:var(--chalk);
+    font-family:'IBM Plex Sans', sans-serif;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important;}
+  }
+
+  /* graph-paper texture */
+  .grid-bg{
+    position:fixed; inset:0; z-index:0; pointer-events:none;
+    background-image:
+      linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size: 44px 44px;
+    opacity:0.35;
+  }
+
+  a{color:inherit;}
+  h1,h2,h3,h4{font-family:'Space Grotesk', sans-serif; margin:0; font-weight:600; letter-spacing:-0.01em;}
+  p{margin:0;}
+  .mono{font-family:'IBM Plex Mono', monospace;}
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--brass);
+  }
+  .section{ max-width:var(--maxw); margin:0 auto; padding: 96px 32px; position:relative; z-index:1; }
+  @media (max-width: 720px){ .section{ padding: 64px 20px; } }
+
+  .rule{ height:1px; background:var(--line-strong); width:100%; }
+
+  /* ---------- NAV ---------- */
+  header.nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(16,28,52,0.86);
+    backdrop-filter: blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    max-width:var(--maxw); margin:0 auto; padding:16px 32px;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  @media (max-width:720px){ .nav-inner{padding:14px 20px;} }
+  .nav-mark{
+    font-family:'IBM Plex Mono', monospace; font-size:0.85rem; letter-spacing:0.06em;
+    display:flex; align-items:center; gap:10px;
+  }
+  .nav-mark .dot{ width:8px; height:8px; background:var(--brass); border-radius:50%; }
+  .nav-links{ display:flex; gap:28px; font-family:'IBM Plex Mono', monospace; font-size:0.78rem; letter-spacing:0.04em; }
+  .nav-links a{ text-decoration:none; color:var(--chalk-dim); transition:color .15s; position:relative; padding-bottom:2px;}
+  .nav-links a:hover, .nav-links a:focus-visible{ color:var(--chalk); }
+  .nav-links a::after{
+    content:""; position:absolute; left:0; bottom:-3px; width:0; height:1px; background:var(--brass);
+    transition:width .2s;
+  }
+  .nav-links a:hover::after{ width:100%; }
+  @media (max-width:640px){ .nav-links{display:none;} }
+
+  /* ---------- HERO / TITLE BLOCK ---------- */
+  .hero{
+    max-width:var(--maxw); margin:0 auto; padding:88px 32px 0; position:relative; z-index:1;
+  }
+  @media (max-width:720px){ .hero{padding:56px 20px 0;} }
+  .hero-top{
+    display:flex; justify-content:space-between; align-items:flex-start; gap:24px; flex-wrap:wrap;
+    padding-bottom:56px;
+  }
+  .hero h1{
+    font-size:clamp(2.6rem, 6vw, 4.6rem);
+    line-height:1.02;
+    color:var(--chalk);
+  }
+  .hero h1 span{ color:var(--brass); }
+  .hero-role{
+    margin-top:18px; font-size:1.15rem; color:var(--chalk-dim); max-width:520px;
+    font-family:'IBM Plex Sans', sans-serif; font-weight:400;
+  }
+  .hero-role b{ color:var(--teal); font-weight:600; }
+
+  .titleblock{
+    border:1px solid var(--line-strong);
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.74rem;
+    min-width:240px;
+    background:var(--navy-panel);
+  }
+  .titleblock .tb-row{
+    display:flex; justify-content:space-between; gap:16px;
+    padding:9px 14px; border-bottom:1px solid var(--line);
+  }
+  .titleblock .tb-row:last-child{ border-bottom:none; }
+  .titleblock .tb-k{ color:var(--chalk-dim); letter-spacing:0.04em; }
+  .titleblock .tb-v{ color:var(--chalk); text-align:right; }
+
+  .hero-bottom{
+    display:grid; grid-template-columns: 1fr 1fr 1fr; gap:0;
+    border-top:1px solid var(--line-strong);
+  }
+  @media (max-width:720px){ .hero-bottom{ grid-template-columns:1fr; } }
+  .hero-stat{
+    padding:26px 24px; border-right:1px solid var(--line);
+  }
+  .hero-stat:last-child{ border-right:none; }
+  @media (max-width:720px){ .hero-stat{ border-right:none; border-bottom:1px solid var(--line);} }
+  .hero-stat .num{
+    font-family:'Space Grotesk', sans-serif; font-size:1.9rem; font-weight:700; color:var(--chalk);
+  }
+  .hero-stat .num .unit{ font-size:1rem; color:var(--brass); font-weight:500;}
+  .hero-stat .lbl{ margin-top:6px; font-size:0.78rem; color:var(--chalk-dim); font-family:'IBM Plex Mono', monospace; letter-spacing:0.02em;}
+
+  /* ---------- SECTION HEADS ---------- */
+  .sec-head{ display:flex; align-items:baseline; gap:14px; margin-bottom:44px; flex-wrap:wrap; }
+  .sec-head h2{ font-size:clamp(1.6rem, 3vw, 2.2rem); }
+  .sec-head .sec-num{ font-family:'IBM Plex Mono', monospace; color:var(--brass); font-size:0.9rem; }
+  .sec-head .sec-line{ flex:1; height:1px; background:var(--line-strong); min-width:40px; }
+
+  /* ---------- FEATURED PROJECT (Biofill) ---------- */
+  .feature{
+    border:1px solid var(--line-strong);
+    background:var(--navy-panel);
+    position:relative;
+  }
+  .feature-tag{
+    position:absolute; top:0; left:0; transform:translateY(-50%);
+    background:var(--brass); color:var(--navy-deep);
+    font-family:'IBM Plex Mono', monospace; font-size:0.68rem; font-weight:600;
+    letter-spacing:0.08em; text-transform:uppercase;
+    padding:5px 12px;
+  }
+  .feature-grid{
+    display:grid; grid-template-columns: 1.1fr 0.9fr;
+  }
+  @media (max-width:900px){ .feature-grid{ grid-template-columns:1fr; } }
+
+  .viewer-wrap{
+    position:relative; border-right:1px solid var(--line-strong);
+    background:
+      radial-gradient(circle at 30% 20%, rgba(82,184,171,0.10), transparent 60%),
+      var(--navy);
+    min-height:420px;
+  }
+  @media (max-width:900px){ .viewer-wrap{ border-right:none; border-bottom:1px solid var(--line-strong); } }
+  model-viewer{
+    width:100%; height:100%; min-height:420px;
+    --poster-color: transparent;
+  }
+  .viewer-hint{
+    position:absolute; bottom:14px; left:14px; right:14px;
+    font-family:'IBM Plex Mono', monospace; font-size:0.68rem; color:var(--chalk-dim);
+    display:flex; justify-content:space-between; pointer-events:none;
+    letter-spacing:0.03em;
+  }
+  .callout{
+    position:absolute; font-family:'IBM Plex Mono', monospace; font-size:0.66rem; color:var(--teal);
+    display:flex; align-items:center; gap:6px; pointer-events:none; letter-spacing:0.02em;
+  }
+  .callout .leader{ width:26px; height:1px; background:var(--teal-dim); }
+  .callout.c1{ top:16px; left:16px; }
+  .callout.c2{ top:16px; right:16px; flex-direction:row-reverse; }
+  .callout.c3{ bottom:44px; right:16px; flex-direction:row-reverse; }
+
+  .feature-copy{ padding:38px 34px; }
+  @media (max-width:720px){ .feature-copy{ padding:28px 22px; } }
+  .feature-copy h3{ font-size:1.5rem; margin-bottom:10px; }
+  .feature-copy .desc{ color:var(--chalk-dim); font-size:0.95rem; margin-bottom:22px; }
+  .spec-list{ display:flex; flex-direction:column; gap:0; margin-bottom:24px; }
+  .spec-row{
+    display:flex; justify-content:space-between; gap:12px;
+    padding:10px 0; border-bottom:1px solid var(--line);
+    font-size:0.84rem;
+  }
+  .spec-row:last-child{ border-bottom:none; }
+  .spec-row .k{ color:var(--chalk-dim); }
+  .spec-row .v{ font-family:'IBM Plex Mono', monospace; color:var(--chalk); text-align:right; }
+  .chip-row{ display:flex; flex-wrap:wrap; gap:8px; }
+  .chip{
+    font-family:'IBM Plex Mono', monospace; font-size:0.68rem; letter-spacing:0.03em;
+    border:1px solid var(--line-strong); color:var(--chalk-dim);
+    padding:5px 10px; text-transform:uppercase;
+  }
+
+  /* ---------- PROJECTS GRID ---------- */
+  .proj-grid{
+    display:grid; grid-template-columns:repeat(2, 1fr); gap:1px;
+    background:var(--line-strong);
+    border:1px solid var(--line-strong);
+  }
+  @media (max-width:760px){ .proj-grid{ grid-template-columns:1fr; } }
+  .proj-card{
+    background:var(--navy); padding:30px 28px;
+    display:flex; flex-direction:column; gap:16px;
+    transition: background .2s;
+  }
+  .proj-card:hover{ background:var(--navy-panel); }
+  .proj-card .pc-head{ display:flex; justify-content:space-between; align-items:flex-start; gap:10px;}
+  .proj-card h4{ font-size:1.12rem; }
+  .proj-card .pc-id{ font-family:'IBM Plex Mono', monospace; font-size:0.7rem; color:var(--brass); white-space:nowrap;}
+  .proj-card p.pc-desc{ color:var(--chalk-dim); font-size:0.88rem; }
+  .pc-specs{ display:flex; flex-direction:column; gap:6px; margin-top:auto; }
+  .pc-spec{ display:flex; gap:8px; font-family:'IBM Plex Mono', monospace; font-size:0.72rem; color:var(--teal); }
+  .pc-spec::before{ content:"↳"; color:var(--teal-dim); }
+
+  /* ---------- EXPERIENCE TIMELINE ---------- */
+  .timeline{ display:flex; flex-direction:column; }
+  .tl-item{
+    display:grid; grid-template-columns: 160px 1fr; gap:28px;
+    padding:28px 0; border-bottom:1px solid var(--line);
+  }
+  .tl-item:first-child{ border-top:1px solid var(--line); }
+  @media (max-width:640px){ .tl-item{ grid-template-columns:1fr; gap:8px; } }
+  .tl-date{ font-family:'IBM Plex Mono', monospace; font-size:0.78rem; color:var(--brass); padding-top:2px; }
+  .tl-body h4{ font-size:1.08rem; margin-bottom:2px; }
+  .tl-org{ font-family:'IBM Plex Mono', monospace; font-size:0.76rem; color:var(--teal); margin-bottom:10px; display:block;}
+  .tl-body ul{ margin:0; padding-left:18px; color:var(--chalk-dim); font-size:0.88rem; display:flex; flex-direction:column; gap:6px;}
+  .tl-body li::marker{ color:var(--brass); }
+
+  /* ---------- SKILLS ---------- */
+  .skills-grid{ display:grid; grid-template-columns:repeat(3, 1fr); gap:28px; }
+  @media (max-width:760px){ .skills-grid{ grid-template-columns:1fr; } }
+  .skill-col{ border-top:2px solid var(--brass); padding-top:16px; }
+  .skill-col h4{ font-family:'IBM Plex Mono', monospace; font-size:0.76rem; letter-spacing:0.06em; text-transform:uppercase; color:var(--chalk-dim); margin-bottom:14px; font-weight:500;}
+  .skill-col ul{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:9px; }
+  .skill-col li{ font-size:0.9rem; display:flex; align-items:center; gap:10px; }
+  .skill-col li::before{ content:""; width:5px; height:5px; background:var(--teal); flex-shrink:0; }
+
+  /* ---------- CONTACT / FOOTER ---------- */
+  footer{
+    border-top:1px solid var(--line-strong);
+    background:var(--navy-panel);
+    position:relative; z-index:1;
+  }
+  .foot-inner{
+    max-width:var(--maxw); margin:0 auto; padding:72px 32px 40px;
+  }
+  @media (max-width:720px){ .foot-inner{ padding:56px 20px 32px; } }
+  .foot-top{ display:flex; justify-content:space-between; align-items:flex-end; gap:24px; flex-wrap:wrap; margin-bottom:48px;}
+  .foot-top h2{ font-size:clamp(2rem, 5vw, 3.2rem); max-width:600px; }
+  .foot-top h2 span{ color:var(--brass); }
+  .foot-links{ display:flex; flex-direction:column; gap:12px; align-items:flex-end; }
+  @media (max-width:600px){ .foot-links{ align-items:flex-start; } .foot-top{ flex-direction:column; align-items:flex-start; } }
+  .foot-links a{
+    font-family:'IBM Plex Mono', monospace; font-size:0.85rem; text-decoration:none;
+    color:var(--chalk-dim); border-bottom:1px solid transparent; transition:.15s;
+    display:inline-flex; align-items:center; gap:8px;
+  }
+  .foot-links a:hover{ color:var(--teal); border-color:var(--teal); }
+  .foot-bottom{
+    display:flex; justify-content:space-between; padding-top:24px; border-top:1px solid var(--line);
+    font-family:'IBM Plex Mono', monospace; font-size:0.7rem; color:var(--chalk-dim); flex-wrap:wrap; gap:8px;
+  }
+
+  /* ---------- reveal on scroll ---------- */
+  .reveal{ opacity:0; transform:translateY(18px); transition:opacity .6s ease, transform .6s ease; }
+  .reveal.in{ opacity:1; transform:translateY(0); }
+
+  /* focus visibility */
+  a:focus-visible, model-viewer:focus-visible{ outline:2px solid var(--teal); outline-offset:3px; }
+</style>
 </head>
-
 <body>
 
-  <h1>Ayesha Adil</h1>
+<div class="grid-bg"></div>
 
-  <p>Mechanical & Biomedical Engineering Graduate</p>
+<header class="nav">
+  <div class="nav-inner">
+    <div class="nav-mark"><span class="dot"></span>A. ADIL — MECH/BME</div>
+    <nav class="nav-links">
+      <a href="#work">Work</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
 
-  <h2>About</h2>
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="hero-top">
+    <div>
+      <p class="eyebrow">Portfolio — Rev. 2026</p>
+      <h1>Ayesha Adil<br><span>Design Engineer.</span></h1>
+      <p class="hero-role">
+        Mechanical &amp; Biomedical Engineer building <b>precision medical devices</b> and mechanical
+        systems — from a patent-pending syringe-filling instrument to gas-infrastructure design
+        reviewed at $8M scale.
+      </p>
+    </div>
+    <div class="titleblock">
+      <div class="tb-row"><span class="tb-k">DRAWN BY</span><span class="tb-v">A. ADIL</span></div>
+      <div class="tb-row"><span class="tb-k">PROGRAM</span><span class="tb-v">B.ENG BME, MECH.</span></div>
+      <div class="tb-row"><span class="tb-k">INSTITUTION</span><span class="tb-v">MCMASTER UNIV.</span></div>
+      <div class="tb-row"><span class="tb-k">STATUS</span><span class="tb-v">EIT ELIGIBLE (PEO)</span></div>
+      <div class="tb-row"><span class="tb-k">SCALE</span><span class="tb-v">1 : 1</span></div>
+    </div>
+  </div>
 
-  <p>
-    I'm interested in mechanical design, medical devices,
-    and forensic engineering.
-  </p>
+  <div class="hero-bottom">
+    <div class="hero-stat"><div class="num">±0.05<span class="unit"> mL</span></div><div class="lbl">FILL ACCURACY — BIOFILL DEVICE</div></div>
+    <div class="hero-stat"><div class="num">$8<span class="unit">M</span></div><div class="lbl">PROJECT LED — ENBRIDGE GAS</div></div>
+    <div class="hero-stat"><div class="num">200<span class="unit">+</span></div><div class="lbl">ENGINEERING STANDARDS AUDITED</div></div>
+  </div>
+</section>
 
-  <h2>Projects</h2>
+<!-- ================= FEATURED PROJECT ================= -->
+<section class="section" id="work">
+  <div class="sec-head reveal">
+    <span class="sec-num">01</span>
+    <h2>Featured Work</h2>
+    <div class="sec-line"></div>
+  </div>
 
-  <ul>
-    <li>BioFill – Automated syringe filling device</li>
-    <li>IUD Insertion Device – ReFem</li>
-    <li>Enbridge Mechanical Design Projects</li>
-  </ul>
+  <div class="feature reveal">
+    <span class="feature-tag">Patent Pending · Inventor</span>
+    <div class="feature-grid">
+      <div class="viewer-wrap">
+        <model-viewer
+          src="https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Models/master/2.0/BoomBox/glTF-Binary/BoomBox.glb"
+          alt="Interactive 3D preview — replace with your own CAD export"
+          camera-controls
+          auto-rotate
+          auto-rotate-delay="1200"
+          rotation-per-second="18deg"
+          shadow-intensity="1"
+          exposure="1.1"
+          environment-image="neutral"
+          camera-orbit="20deg 75deg 105%"
+          field-of-view="30deg"
+          interaction-prompt="none"
+          style="background:transparent;">
+        </model-viewer>
+        <span class="callout c1"><span class="leader"></span>2–10 mL RANGE</span>
+        <span class="callout c2">95% PRINTED<span class="leader"></span></span>
+        <span class="callout c3">≤1 mL DEAD VOL.<span class="leader"></span></span>
+        <div class="viewer-hint">
+          <span>DRAG TO ORBIT · SCROLL TO ZOOM</span>
+          <span>MODEL — DEMO PLACEHOLDER</span>
+        </div>
+      </div>
+      <div class="feature-copy">
+        <h3>Biofill — Automated Syringe-Filling Device</h3>
+        <p class="desc">
+          An automated bioink syringe-filling instrument designed for Tessella Biosciences,
+          now in active use in their workflow. Fills 2–10&nbsp;mL syringes inside a biosafety
+          cabinet with tight volumetric accuracy, built from largely 3D-printed components and
+          driven by custom Arduino control logic.
+        </p>
+        <div class="spec-list mono">
+          <div class="spec-row"><span class="k">Fill accuracy</span><span class="v">± 0.05 mL</span></div>
+          <div class="spec-row"><span class="k">Syringe range</span><span class="v">2 – 10 mL</span></div>
+          <div class="spec-row"><span class="k">Dead volume</span><span class="v">≤ 1 mL / cycle</span></div>
+          <div class="spec-row"><span class="k">Fabrication</span><span class="v">95% 3D-printed</span></div>
+          <div class="spec-row"><span class="k">Validation</span><span class="v">FEA + physical test</span></div>
+          <div class="spec-row"><span class="k">Control</span><span class="v">Arduino / C++</span></div>
+        </div>
+        <div class="chip-row">
+          <span class="chip">Autodesk Inventor</span>
+          <span class="chip">FEA</span>
+          <span class="chip">Arduino / C++</span>
+          <span class="chip">Patent Disclosure</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <h2>Contact</h2>
+<!-- ================= PROJECTS GRID ================= -->
+<section class="section">
+  <div class="sec-head reveal">
+    <span class="sec-num">02</span>
+    <h2>Selected Projects</h2>
+    <div class="sec-line"></div>
+  </div>
 
-  <p>
-    <a href="mailto:you@email.com">Email</a> |
-    <a href="https://www.linkedin.com/">LinkedIn</a> |
-    <a href="https://github.com/ayesha-adill">GitHub</a>
-  </p>
+  <div class="proj-grid reveal">
+    <div class="proj-card">
+      <div class="pc-head"><h4>Dual Gel-Suction IUD Insertion Device</h4><span class="pc-id">PROJ / 002</span></div>
+      <p class="pc-desc">Consolidated three separate clinical instruments into a single device for ReFem Tech, designed in SolidWorks and iterated through five physical prototypes toward an FDA 510(k) pathway.</p>
+      <div class="pc-specs">
+        <div class="pc-spec">3 tools → 1 system</div>
+        <div class="pc-spec">5 prototype iterations</div>
+        <div class="pc-spec">ISO 10993 / ISO 14971 compliant</div>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <div class="pc-head"><h4>Pickup Truck — CAD &amp; Simulation</h4><span class="pc-id">PROJ / 003</span></div>
+      <p class="pc-desc">Full vehicle assembly modeled in Autodesk Inventor — drivetrain, chassis, and mounts — supported by a complete engineering drawing package.</p>
+      <div class="pc-specs">
+        <div class="pc-spec">Stress + motion simulation</div>
+        <div class="pc-spec">CAM simulation under load</div>
+        <div class="pc-spec">Full drawing package</div>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <div class="pc-head"><h4>Pediatric Gait Analysis Device</h4><span class="pc-id">PROJ / 004</span></div>
+      <p class="pc-desc">Remote gait-analysis tool measuring ankle dorsiflexion via gyroscope and pressure sensors to study kinematic patterns associated with cerebral palsy.</p>
+      <div class="pc-specs">
+        <div class="pc-spec">Gyroscope + pressure fusion</div>
+        <div class="pc-spec">Kinematic data processing</div>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <div class="pc-head"><h4>Chromatography Flow Device</h4><span class="pc-id">PROJ / 005</span></div>
+      <p class="pc-desc">Research at McMaster evaluating flow uniformity in a vaccine-purification chromatography device via wet-lab testing and COMSOL simulation.</p>
+      <div class="pc-specs">
+        <div class="pc-spec">COMSOL flow simulation</div>
+        <div class="pc-spec">Leak diagnosis → gasket redesign</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= EXPERIENCE ================= -->
+<section class="section" id="experience">
+  <div class="sec-head reveal">
+    <span class="sec-num">03</span>
+    <h2>Experience</h2>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="timeline reveal">
+    <div class="tl-item">
+      <div class="tl-date">SEP 2025 — JUN 2026</div>
+      <div class="tl-body">
+        <h4>Mechanical Engineering Intern</h4>
+        <span class="tl-org">ReFem Tech · Toronto, ON</span>
+        <ul>
+          <li>Designed a dual gel-suction IUD insertion device in SolidWorks, consolidating three instruments into one system.</li>
+          <li>Ran five rounds of prototype testing, diagnosing tolerance, sizing, and ergonomic failures and correcting the design.</li>
+          <li>Co-authored the Technical Specifications Document supporting an FDA 510(k) submission pathway.</li>
+          <li>Interviewed clinicians to shape design direction; contributed to securing $10,000+ in startup pitch awards.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-date">MAY 2024 — AUG 2025</div>
+      <div class="tl-body">
+        <h4>Mechanical Design Engineer Co-op</h4>
+        <span class="tl-org">Enbridge Gas · Chatham, ON</span>
+        <ul>
+          <li>Signed as Mechanical Engineering Lead on an $8M gas station project, supporting 3 additional concurrent projects.</li>
+          <li>Reviewed third-party design packages for regulatory compliance and Enbridge standards; ran field investigations against MTO/TAC requirements.</li>
+          <li>Audited 200+ legacy engineering standards post-merger and built the SME masterlist for consolidation.</li>
+          <li>Built an Excel-based tracking dashboard adopted across 10 engineering teams (100+ users); presented to leadership in Calgary.</li>
+          <li>Developed a VBA tool to locate missing MTRs across 1,000+ purchase orders, saving 50+ engineering hours.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-date">MAY 2021 — AUG 2021</div>
+      <div class="tl-body">
+        <h4>Mechanical Engineering Research Assistant Co-op</h4>
+        <span class="tl-org">McMaster University · Hamilton, ON</span>
+        <ul>
+          <li>Ran wet-lab experiments and COMSOL simulations to evaluate flow uniformity in a vaccine-purification chromatography device.</li>
+          <li>Diagnosed leaks and resolved them via added fasteners and a gasket redesign.</li>
+          <li>Documented findings in a technical report and presented results to the research group.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SKILLS ================= -->
+<section class="section" id="skills">
+  <div class="sec-head reveal">
+    <span class="sec-num">04</span>
+    <h2>Skills &amp; Tools</h2>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="skills-grid reveal">
+    <div class="skill-col">
+      <h4>Software &amp; Analysis</h4>
+      <ul>
+        <li>SolidWorks</li>
+        <li>Autodesk Inventor</li>
+        <li>COMSOL</li>
+        <li>OpenSim</li>
+        <li>Navisworks &amp; Bluebeam</li>
+        <li>Python &amp; Excel (VBA)</li>
+      </ul>
+    </div>
+    <div class="skill-col">
+      <h4>Field &amp; Testing</h4>
+      <ul>
+        <li>Field investigations &amp; site surveys</li>
+        <li>Failure analysis</li>
+        <li>FMEA risk assessment</li>
+        <li>Kinematic data processing</li>
+      </ul>
+    </div>
+    <div class="skill-col">
+      <h4>Certifications</h4>
+      <ul>
+        <li>EIT Eligible (PEO)</li>
+        <li>Ontario Class G License</li>
+        <li>ISO 10993 / 14971 familiarity</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT / FOOTER ================= -->
+<footer id="contact">
+  <div class="foot-inner">
+    <div class="foot-top reveal">
+      <h2>Let's build<br><span>something precise.</span></h2>
+      <div class="foot-links">
+        <a href="mailto:Ayesha.adil1644@gmail.com">EMAIL — Ayesha.adil1644@gmail.com ↗</a>
+        <a href="https://linkedin.com/in/ayeshaadil" target="_blank" rel="noopener">LINKEDIN — /in/ayeshaadil ↗</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 AYESHA ADIL</span>
+      <span>SHEET 1 OF 1 · TOLERANCES ± NONE</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Scroll-reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('in');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el => io.observe(el));
+
+  // Pause auto-rotate on interaction, resume after idle
+  const mv = document.querySelector('model-viewer');
+  if(mv){
+    let idleTimer;
+    const pause = () => {
+      mv.removeAttribute('auto-rotate');
+      clearTimeout(idleTimer);
+      idleTimer = setTimeout(() => mv.setAttribute('auto-rotate',''), 4000);
+    };
+    mv.addEventListener('camera-change', (e) => {
+      if(e.detail.source === 'user-interaction') pause();
+    });
+  }
+</script>
 
 </body>
 </html>
