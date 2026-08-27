@@ -78,14 +78,16 @@
     letter-spacing:0.01em;
   }
 
-  .highlights{
+.highlights{
     list-style:none;
     margin:0 auto 30px;
     padding:0;
     max-width:420px;
-    display:flex;
-    flex-direction:column;
-    gap:14px;
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap:28px;
+    row-gap:18px;
+    text-align:left;
   }
   .highlights li{
     display:flex;
@@ -184,7 +186,7 @@
 
   <div class="card">
     <h1>Ayesha Adil</h1>
-    <p class="subtitle">Mechanical &amp; Biomedical Engineering Graduate — McMaster University</p>
+    <p class="subtitle">Mechanical &amp; Biomedical Engineering Graduate — McMaster&nbsp;University</p>
 
     <ul class="highlights">
       <li><span class="hl-label">Patent-Pending Inventor</span><span class="hl-desc">Automated BioInk Syringe Filling Device</span></li>
