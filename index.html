@@ -71,24 +71,35 @@
     color:var(--plum);
   }
 
-  .highlights{
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:9px;
-    max-width:440px;
-    margin:0 auto 30px;
-  }
-  .chip{
-    font-size:0.74rem;
-    font-weight:500;
+  .subtitle{
+    font-size:0.86rem;
+    color:var(--plum-soft);
+    margin:0 0 30px;
     letter-spacing:0.01em;
-    color:var(--lilac-border);
-    background:rgba(139,107,184,0.09);
-    border:1px solid var(--lilac-border-soft);
-    padding:7px 13px;
-    border-radius:2px;
-    white-space:nowrap;
+  }
+
+  .highlights{
+    list-style:none;
+    margin:0 auto 30px;
+    padding:0;
+    max-width:420px;
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+  }
+  .highlights li{
+    display:flex;
+    flex-direction:column;
+    gap:2px;
+  }
+  .hl-label{
+    font-size:0.86rem;
+    font-weight:600;
+    color:var(--plum);
+  }
+  .hl-desc{
+    font-size:0.78rem;
+    color:var(--plum-soft);
   }
 
   .divider{
@@ -173,12 +184,13 @@
 
   <div class="card">
     <h1>Ayesha Adil</h1>
-    <div class="highlights">
-      <span class="chip">Mechanical &amp; Biomedical Engineering Graduate</span>
-      <span class="chip">McMaster University</span>
-      <span class="chip">Patent-Pending Inventor</span>
-      <span class="chip">EIT Eligible (PEO)</span>
-    </div>
+    <p class="subtitle">Mechanical &amp; Biomedical Engineering Graduate — McMaster University</p>
+
+    <ul class="highlights">
+      <li><span class="hl-label">Patent-Pending Inventor</span><span class="hl-desc">Automated medical device design</span></li>
+      <li><span class="hl-label">Engineering Lead</span><span class="hl-desc">$8M infrastructure project, Enbridge Gas</span></li>
+      <li><span class="hl-label">Startup Experience</span><span class="hl-desc">FemTech medical device development</span></li>
+    </ul>
 
     <div class="divider"></div>
 
