@@ -50,7 +50,7 @@
       border-radius:var(--radius);
       box-shadow: 0 0 0 6px rgba(139,107,184,0.08), 0 24px 60px rgba(90,63,133,0.10);
       padding:52px 44px 36px;
-      text-align:center;
+      text-align:left;
     }
     @media (max-width:560px){ .header-card{ padding:40px 24px 28px; } }
     .header-card h1{
@@ -66,8 +66,8 @@
       color:var(--plum-soft);
       margin:0 0 28px;
     }
-    .divider{ height:1px; background:var(--lilac-soft); margin:0 auto 26px; width:56px; }
-    .actions{ display:flex; gap:12px; justify-content:center; margin-bottom:28px; flex-wrap:wrap; }
+    .divider{ height:1px; background:var(--lilac-soft); margin:0 0 26px; width:56px; }
+    .actions{ display:flex; gap:12px; justify-content:flex-start; margin-bottom:28px; flex-wrap:wrap; }
     .btn{
       font-size:0.84rem; font-weight:600; letter-spacing:0.01em;
       text-decoration:none; padding:12px 24px; border-radius:8px;
@@ -76,7 +76,7 @@
     }
     .btn-primary{ background:var(--lilac-border); color:#fff; }
     .btn-primary:hover{ background:#7a5aa6; transform:translateY(-2px); box-shadow:0 10px 22px rgba(139,107,184,0.32); }
-    .contact{ display:flex; flex-wrap:wrap; justify-content:center; align-items:center; gap:12px; }
+    .contact{ display:flex; flex-wrap:wrap; justify-content:flex-start; align-items:center; gap:12px; }
     .contact a{
       font-size:0.82rem; color:var(--plum-soft); text-decoration:none;
       display:inline-flex; align-items:center; gap:7px; transition:color .15s;
@@ -183,6 +183,7 @@
   </header>
 
   <main>
+    <!-- ===== PROJECT 1: BIOFILL ===== -->
     <section class="proj-section" id="biofill">
       <div class="proj-title-row">
         <h2>Biofill — Automated Syringe-Filling Device</h2>
@@ -231,6 +232,7 @@
       </div>
     </section>
 
+    <!-- ===== PROJECT 2: IUD DEVICE ===== -->
     <section class="proj-section" id="iud-device">
       <div class="proj-title-row">
         <h2>Dual Gel-Suction IUD Insertion Device</h2>
@@ -268,6 +270,7 @@
       </div>
     </section>
 
+    <!-- ===== PROJECT 3: GAIT ANALYSIS ===== -->
     <section class="proj-section" id="gait-analysis">
       <div class="proj-title-row">
         <h2>Pediatric Gait Analysis Device</h2>
@@ -301,6 +304,7 @@
       </div>
     </section>
 
+    <!-- ===== PROJECT 4: CHROMATOGRAPHY ===== -->
     <section class="proj-section" id="chromatography">
       <div class="proj-title-row">
         <h2>Chromatography Flow Device</h2>
