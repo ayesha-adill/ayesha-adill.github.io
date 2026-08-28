@@ -37,54 +37,124 @@
     }
     a{ color:inherit; }
     .mono{ font-family:'IBM Plex Mono', monospace; }
-    .wrap{ max-width:var(--maxw); margin:0 auto; padding:0 24px; }
     
-    /* ================= HEADER ================= */
+    /* ================= LANDING SECTION ================= */
+    .landing{
+      height:100vh;
+      min-height:500px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      padding:0 24px;
+      background: linear-gradient(180deg, var(--white) 0%, var(--lilac-bg) 100%);
+      position:relative;
+    }
+    .landing h1{
+      font-family:'Fraunces', serif;
+      font-weight:600;
+      font-size:clamp(2.5rem, 7vw, 4rem);
+      margin:0 0 12px 0;
+      color:var(--plum);
+      line-height:1.1;
+    }
+    .landing p{
+      font-size:clamp(1rem, 2.5vw, 1.25rem);
+      color:var(--plum-soft);
+      margin:0 0 40px 0;
+      font-weight:500;
+    }
+    .scroll-prompt{
+      position:absolute;
+      bottom:32px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:8px;
+      color:var(--lilac-border);
+      text-decoration:none;
+      font-size:0.75rem;
+      font-weight:600;
+      letter-spacing:0.05em;
+      text-transform:uppercase;
+      transition:transform 0.2s ease;
+    }
+    .scroll-prompt:hover{
+      transform:translateY(3px);
+    }
+    .scroll-prompt svg{
+      width:20px;
+      height:20px;
+      stroke:var(--lilac-border);
+      fill:none;
+      stroke-width:2;
+    }
+
+    /* ================= HEADER CARD ================= */
     header.site-header{
-      padding:64px 24px 48px;
+      padding:60px 24px 40px;
     }
     .header-card{
-      max-width:640px; margin:0 auto;
+      max-width:var(--maxw);
+      margin:0 auto;
       background:var(--white);
       border:1.5px solid var(--lilac-border);
       border-radius:var(--radius);
-      box-shadow: 0 0 0 6px rgba(139,107,184,0.08), 0 24px 60px rgba(90,63,133,0.10);
-      padding:52px 44px 36px;
-      text-align:left;
+      box-shadow: 0 0 0 6px rgba(139,107,184,0.08), 0 16px 40px rgba(90,63,133,0.08);
+      padding:24px 32px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:20px;
+      flex-wrap:wrap;
     }
-    @media (max-width:560px){ .header-card{ padding:40px 24px 28px; } }
-    .header-card h1{
+    .header-left h2{
       font-family:'Fraunces', serif;
       font-weight:600;
-      font-size:clamp(2.1rem, 6vw, 2.75rem);
-      line-height:1.08;
-      margin:0 0 10px;
+      font-size:1.6rem;
+      margin:0 0 4px 0;
       color:var(--plum);
+      line-height:1.2;
     }
-    .header-card .subtitle{
-      font-size:0.86rem;
+    .header-left p{
+      font-size:0.85rem;
       color:var(--plum-soft);
-      margin:0 0 28px;
+      margin:0;
     }
-    .divider{ height:1px; background:var(--lilac-soft); margin:0 0 26px; width:56px; }
-    .actions{ display:flex; gap:12px; justify-content:flex-start; margin-bottom:28px; flex-wrap:wrap; }
+    .header-right{
+      display:flex;
+      align-items:center;
+      gap:16px;
+      flex-wrap:wrap;
+    }
+    .contact-links{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+    .contact-links a{
+      font-size:0.82rem;
+      color:var(--plum-soft);
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      transition:color .15s;
+    }
+    .contact-links a:hover{ color:var(--plum); }
+    .contact-links .sep{ color:var(--lilac-soft); font-size:0.82rem; }
+    .contact-links .icon{ width:14px; height:14px; flex-shrink:0; stroke:var(--lilac-border); fill:none; stroke-width:1.8; }
+    
     .btn{
-      font-size:0.84rem; font-weight:600; letter-spacing:0.01em;
-      text-decoration:none; padding:12px 24px; border-radius:8px;
+      font-size:0.82rem; font-weight:600; letter-spacing:0.01em;
+      text-decoration:none; padding:8px 18px; border-radius:6px;
       transition:transform .18s ease, box-shadow .18s ease, background .18s ease;
       display:inline-flex; align-items:center; gap:8px;
     }
     .btn-primary{ background:var(--lilac-border); color:#fff; }
-    .btn-primary:hover{ background:#7a5aa6; transform:translateY(-2px); box-shadow:0 10px 22px rgba(139,107,184,0.32); }
-    .contact{ display:flex; flex-wrap:wrap; justify-content:flex-start; align-items:center; gap:12px; }
-    .contact a{
-      font-size:0.82rem; color:var(--plum-soft); text-decoration:none;
-      display:inline-flex; align-items:center; gap:7px; transition:color .15s;
-    }
-    .contact a:hover{ color:var(--plum); }
-    .contact .sep{ color:var(--lilac-soft); font-size:0.82rem; }
-    .contact .icon{ width:14px; height:14px; flex-shrink:0; stroke:var(--lilac-border); fill:none; stroke-width:1.8; }
-    
+    .btn-primary:hover{ background:#7a5aa6; transform:translateY(-1px); box-shadow:0 6px 16px rgba(139,107,184,0.28); }
+
     /* ================= PROJECTS ================= */
     main{ padding:8px 24px 100px; }
     .proj-section{
@@ -96,7 +166,7 @@
     }
     @media (max-width:640px){ .proj-section{ padding:28px 22px 32px; } }
     .proj-title-row{ display:flex; align-items:center; gap:12px; margin-bottom:6px; flex-wrap:wrap; }
-    .proj-title-row h2{
+    .proj-title-row h3{
       font-family:'Fraunces', serif; font-weight:600;
       font-size:clamp(1.3rem, 3vw, 1.65rem); margin:0; color:var(--plum);
     }
@@ -145,7 +215,7 @@
       display:grid; grid-template-columns:repeat(3, 1fr); gap:28px;
     }
     @media (max-width:700px){ .whr-grid{ grid-template-columns:1fr; gap:22px; } }
-    .whr-col h3{
+    .whr-col h4{
       font-size:0.78rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em;
       color:var(--lilac-border); margin:0 0 12px;
     }
@@ -160,33 +230,43 @@
   </style>
 </head>
 <body>
-  <header class="site-header">
+
+  <section class="landing">
+    <h1>Ayesha Adil</h1>
+    <p>Mechanical &amp; Biomedical Engineering Graduate — McMaster University</p>
+    <a href="#projects" class="scroll-prompt">
+      Scroll for projects
+      <svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5"/></svg>
+    </a>
+  </section>
+
+  <header class="site-header" id="projects">
     <div class="header-card">
-      <h1>Ayesha Adil</h1>
-      <p class="subtitle">Mechanical &amp; Biomedical Engineering Graduate — McMaster&nbsp;University</p>
-      <div class="actions">
-        <a class="btn btn-primary" href="resume.pdf" target="_blank" rel="noopener">View Resume</a>
+      <div class="header-left">
+        <h2>Ayesha Adil</h2>
+        <p>McMaster University — Mechanical &amp; Biomedical Engineering</p>
       </div>
-      <div class="divider"></div>
-      <div class="contact">
-        <a href="mailto:ayesha.adil1644@gmail.com">
-          <svg class="icon" viewBox="0 0 24 24"><path d="M3 6h18v12H3z"/><path d="m3 7 9 6 9-6"/></svg>
-          ayesha.adil1644@gmail.com
-        </a>
-        <span class="sep">·</span>
-        <a href="https://linkedin.com/in/ayeshaadil" target="_blank" rel="noopener">
-          <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 11v5M8 8v.01M12 16v-3.2c0-1 .8-1.8 1.8-1.8 1 0 1.7.8 1.7 1.8V16"/></svg>
-          linkedin.com/in/ayeshaadil
-        </a>
+      <div class="header-right">
+        <div class="contact-links">
+          <a href="mailto:ayesha.adil1644@gmail.com">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M3 6h18v12H3z"/><path d="m3 7 9 6 9-6"/></svg>
+            Email
+          </a>
+          <span class="sep">·</span>
+          <a href="https://linkedin.com/in/ayeshaadil" target="_blank" rel="noopener">
+            <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 11v5M8 8v.01M12 16v-3.2c0-1 .8-1.8 1.8-1.8 1 0 1.7.8 1.7 1.8V16"/></svg>
+            LinkedIn
+          </a>
+        </div>
+        <a class="btn btn-primary" href="resume.pdf" target="_blank" rel="noopener">View Resume</a>
       </div>
     </div>
   </header>
 
   <main>
-    <!-- ===== PROJECT 1: BIOFILL ===== -->
     <section class="proj-section" id="biofill">
       <div class="proj-title-row">
-        <h2>Biofill — Automated Syringe-Filling Device</h2>
+        <h3>Biofill — Automated Syringe-Filling Device</h3>
       </div>
       <p class="proj-sub">Patent Pending · Inventor · Tessella Biosciences</p>
       <div class="media-row">
@@ -206,14 +286,14 @@
       </div>
       <div class="whr-grid">
         <div class="whr-col">
-          <h3>What?</h3>
+          <h4>What?</h4>
           <ul>
             <li>Designed an automated bioink syringe-filling device for a biotech client</li>
             <li>Fills 2–10 mL syringes inside a biosafety cabinet with tight volumetric control</li>
           </ul>
         </div>
         <div class="whr-col">
-          <h3>How?</h3>
+          <h4>How?</h4>
           <ul>
             <li>Built <strong>95% of components via 3D printing</strong>, designed in Autodesk Inventor</li>
             <li>Programmed <strong>Arduino-based control logic in C++</strong> to automate the fill cycle</li>
@@ -222,7 +302,7 @@
           </ul>
         </div>
         <div class="whr-col">
-          <h3>Results</h3>
+          <h4>Results</h4>
           <ul>
             <li>Achieved <strong>±0.05 mL fill accuracy</strong> with ≤1 mL dead volume per cycle</li>
             <li>Now adopted into the client's active workflow</li>
@@ -232,10 +312,9 @@
       </div>
     </section>
 
-    <!-- ===== PROJECT 2: IUD DEVICE ===== -->
     <section class="proj-section" id="iud-device">
       <div class="proj-title-row">
-        <h2>Dual Gel-Suction IUD Insertion Device</h2>
+        <h3>Dual Gel-Suction IUD Insertion Device</h3>
       </div>
       <p class="proj-sub">ReFem Tech · FemTech Startup</p>
       <div class="media-row">
@@ -245,13 +324,13 @@
       </div>
       <div class="whr-grid">
         <div class="whr-col">
-          <h3>What?</h3>
+          <h4>What?</h4>
           <ul>
             <li>Designed a device consolidating <strong>three separate clinical instruments into one system</strong></li>
           </ul>
         </div>
         <div class="whr-col">
-          <h3>How?</h3>
+          <h4>How?</h4>
           <ul>
             <li>Designed in <strong>SolidWorks</strong>; iterated through <strong>5 physical prototypes</strong> (3D-printed)</li>
             <li>Diagnosed tolerance, sizing, and ergonomic failures across iterations and corrected the design</li>
@@ -260,7 +339,7 @@
           </ul>
         </div>
         <div class="whr-col">
-          <h3>Results</h3>
+          <h4>Results</h4>
           <ul>
             <li>Reduced 3 separate tools to <strong>1 consolidated system</strong></li>
             <li>Authored a design specification sheet supporting an <strong>FDA 510(k)</strong> submission pathway</li>
@@ -270,10 +349,9 @@
       </div>
     </section>
 
-    <!-- ===== PROJECT 3: GAIT ANALYSIS ===== -->
     <section class="proj-section" id="gait-analysis">
       <div class="proj-title-row">
-        <h2>Pediatric Gait Analysis Device</h2>
+        <h3>Pediatric Gait Analysis Device</h3>
       </div>
       <p class="proj-sub">Course Project · Biomechanics</p>
       <div class="media-row">
@@ -283,20 +361,20 @@
       </div>
       <div class="whr-grid">
         <div class="whr-col">
-          <h3>What?</h3>
+          <h4>What?</h4>
           <ul>
             <li>Built a remote gait-analysis tool to study kinematic patterns linked to cerebral palsy</li>
           </ul>
         </div>
         <div class="whr-col">
-          <h3>How?</h3>
+          <h4>How?</h4>
           <ul>
             <li>Measured ankle dorsiflexion using <strong>gyroscope and pressure sensors</strong></li>
             <li>Processed the resulting kinematic data for analysis</li>
           </ul>
         </div>
         <div class="whr-col">
-          <h3>Results</h3>
+          <h4>Results</h4>
           <ul>
             <li>Generated trajectory, velocity, and movement data supporting biomechanical analysis of gait patterns</li>
           </ul>
@@ -304,10 +382,9 @@
       </div>
     </section>
 
-    <!-- ===== PROJECT 4: CHROMATOGRAPHY ===== -->
     <section class="proj-section" id="chromatography">
       <div class="proj-title-row">
-        <h2>Chromatography Flow Device</h2>
+        <h3>Chromatography Flow Device</h3>
       </div>
       <p class="proj-sub">McMaster University Research</p>
       <div class="media-row">
@@ -317,20 +394,20 @@
       </div>
       <div class="whr-grid">
         <div class="whr-col">
-          <h3>What?</h3>
+          <h4>What?</h4>
           <ul>
             <li>Evaluated flow uniformity in a chromatography device used for vaccine purification</li>
           </ul>
         </div>
         <div class="whr-col">
-          <h3>How?</h3>
+          <h4>How?</h4>
           <ul>
             <li>Ran wet-lab experiments and <strong>COMSOL simulations</strong></li>
             <li>Diagnosed leaks within the system</li>
           </ul>
         </div>
         <div class="whr-col">
-          <h3>Results</h3>
+          <h4>Results</h4>
           <ul>
             <li>Resolved leaks via added fasteners and a gasket redesign</li>
             <li>Documented findings in a technical report presented to faculty</li>
