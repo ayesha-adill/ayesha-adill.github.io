@@ -1,475 +1,382 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ayesha Adil — Mechanical &amp; Biomedical Design Engineer</title>
-<meta name="description" content="Portfolio of Ayesha Adil — Mechanical and Biomedical Design Engineer.">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ayesha Adil — Mechanical &amp; Biomedical Design Engineer</title>
+  <meta name="description" content="Portfolio of Ayesha Adil — Mechanical and Biomedical Design Engineer.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script type="module" src="https://unpkg.com/@google/model-viewer@3.5.0/dist/model-viewer.min.js"></script>
+  <style>
+    :root{
+      --lilac-bg:      #f7f3fb;
+      --lilac-wash:    #eee5f7;
+      --lilac-border:  #8b6bb8;
+      --lilac-soft:    #cdbbe4;
+      --plum:          #362a4a;
+      --plum-soft:     #6b5c85;
+      --white:         #ffffff;
+      --radius: 14px;
+      --maxw: 980px;
+    }
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
+    body{
+      margin:0;
+      background:var(--lilac-bg);
+      color:var(--plum);
+      font-family:'Inter', sans-serif;
+      line-height:1.55;
+      -webkit-font-smoothing:antialiased;
+    }
+    @media (prefers-reduced-motion: reduce){
+      html{ scroll-behavior:auto; }
+      *{ animation-duration:0.01ms !important; transition-duration:0.01ms !important; }
+    }
+    a{ color:inherit; }
+    
+    /* ================= LANDING SECTION ================= */
+    .landing{
+      height:100vh;
+      min-height:550px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      padding:0 24px;
+      background: linear-gradient(180deg, var(--white) 0%, var(--lilac-bg) 100%);
+      position:relative;
+    }
+    .landing h1{
+      font-family:'Fraunces', serif;
+      font-weight:600;
+      font-size:clamp(2.5rem, 7vw, 4.2rem);
+      margin:0 0 12px 0;
+      color:var(--plum);
+      line-height:1.1;
+    }
+    .landing p{
+      font-size:clamp(1rem, 2.5vw, 1.25rem);
+      color:var(--plum-soft);
+      margin:0 0 32px 0;
+      font-weight:500;
+    }
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    /* Landing Links Bar */
+    .landing-links{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:16px;
+      flex-wrap:wrap;
+      margin-bottom:20px;
+    }
+    .landing-links a.link-item{
+      font-size:0.9rem;
+      font-weight:500;
+      color:var(--plum-soft);
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      transition:color .15s ease;
+    }
+    .landing-links a.link-item:hover{ color:var(--plum); }
+    .landing-links .sep{ color:var(--lilac-soft); font-size:0.9rem; }
+    .landing-links .icon{ width:16px; height:16px; flex-shrink:0; stroke:var(--lilac-border); fill:none; stroke-width:1.8; }
+    
+    .btn{
+      font-size:0.88rem; font-weight:600; letter-spacing:0.01em;
+      text-decoration:none; padding:10px 22px; border-radius:8px;
+      transition:transform .18s ease, box-shadow .18s ease, background .18s ease;
+      display:inline-flex; align-items:center; gap:8px;
+    }
+    .btn-primary{ background:var(--lilac-border); color:#fff; }
+    .btn-primary:hover{ background:#7a5aa6; transform:translateY(-2px); box-shadow:0 8px 20px rgba(139,107,184,0.3); }
 
-<script type="module" src="https://unpkg.com/@google/model-viewer@3.5.0/dist/model-viewer.min.js"></script>
+    .scroll-prompt{
+      position:absolute;
+      bottom:32px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:8px;
+      color:var(--lilac-border);
+      text-decoration:none;
+      font-size:0.75rem;
+      font-weight:600;
+      letter-spacing:0.05em;
+      text-transform:uppercase;
+      transition:transform 0.2s ease;
+    }
+    .scroll-prompt:hover{ transform:translateY(3px); }
+    .scroll-prompt svg{
+      width:20px;
+      height:20px;
+      stroke:var(--lilac-border);
+      fill:none;
+      stroke-width:2;
+    }
 
-<style>
-  :root{
-    --lilac-bg:      #f7f3fb;
-    --lilac-wash:    #eee5f7;
-    --lilac-border:  #8b6bb8;
-    --lilac-soft:    #cdbbe4;
-    --plum:          #362a4a;
-    --plum-soft:     #6b5c85;
-    --white:         #ffffff;
-    --check-bg:      #8b6bb8;
-    --radius: 14px;
-    --maxw: 980px;
-  }
-
-  *{ box-sizing:border-box; }
-  html{ scroll-behavior:smooth; }
-  body{
-    margin:0;
-    background:var(--lilac-bg);
-    color:var(--plum);
-    font-family:'Inter', sans-serif;
-    line-height:1.55;
-    -webkit-font-smoothing:antialiased;
-  }
-  @media (prefers-reduced-motion: reduce){
-    html{ scroll-behavior:auto; }
-    *{ animation-duration:0.01ms !important; transition-duration:0.01ms !important; }
-  }
-
-  a{ color:inherit; }
-  .mono{ font-family:'IBM Plex Mono', monospace; }
-  .wrap{ max-width:var(--maxw); margin:0 auto; padding:0 24px; }
-
-  /* ================= HEADER ================= */
-  header.site-header{
-    padding:64px 24px 48px;
-  }
-  .header-card{
-    max-width:640px; margin:0 auto;
-    background:var(--white);
-    border:1.5px solid var(--lilac-border);
-    border-radius:var(--radius);
-    box-shadow: 0 0 0 6px rgba(139,107,184,0.08), 0 24px 60px rgba(90,63,133,0.10);
-    padding:52px 44px 36px;
-    text-align:center;
-  }
-  @media (max-width:560px){ .header-card{ padding:40px 24px 28px; } }
-
-  .header-card h1{
-    font-family:'Fraunces', serif;
-    font-weight:600;
-    font-size:clamp(2.1rem, 6vw, 2.75rem);
-    line-height:1.08;
-    margin:0 0 10px;
-    color:var(--plum);
-  }
-  .header-card .subtitle{
-    font-size:0.86rem;
-    color:var(--plum-soft);
-    margin:0 0 28px;
-  }
-
-  .highlights{
-    list-style:none; margin:0 auto 28px; padding:0;
-    max-width:440px;
-    display:grid; grid-template-columns:1fr 1fr;
-    column-gap:26px; row-gap:16px;
-    text-align:center;
-  }
-  .highlights li{ display:flex; flex-direction:column; gap:2px; }
-  .hl-label{ font-size:0.84rem; font-weight:700; color:var(--plum); }
-  .hl-desc{ font-size:0.75rem; color:var(--plum-soft); }
-
-  .divider{ height:1px; background:var(--lilac-soft); margin:0 auto 26px; width:56px; }
-
-  .actions{ display:flex; gap:12px; justify-content:center; margin-bottom:28px; flex-wrap:wrap; }
-  .btn{
-    font-size:0.84rem; font-weight:600; letter-spacing:0.01em;
-    text-decoration:none; padding:12px 24px; border-radius:8px;
-    transition:transform .18s ease, box-shadow .18s ease, background .18s ease;
-    display:inline-flex; align-items:center; gap:8px;
-  }
-  .btn-primary{ background:var(--lilac-border); color:#fff; }
-  .btn-primary:hover{ background:#7a5aa6; transform:translateY(-2px); box-shadow:0 10px 22px rgba(139,107,184,0.32); }
-
-  .contact{ display:flex; flex-wrap:wrap; justify-content:center; align-items:center; gap:12px; }
-  .contact a{
-    font-size:0.82rem; color:var(--plum-soft); text-decoration:none;
-    display:inline-flex; align-items:center; gap:7px; transition:color .15s;
-  }
-  .contact a:hover{ color:var(--plum); }
-  .contact .sep{ color:var(--lilac-soft); font-size:0.82rem; }
-  .contact .icon{ width:14px; height:14px; flex-shrink:0; stroke:var(--lilac-border); fill:none; stroke-width:1.8; }
-
-  /* ================= PROJECTS ================= */
-  main{ padding:8px 24px 100px; }
-  .proj-section{
-    max-width:var(--maxw); margin:0 auto 56px;
-    background:var(--white);
-    border:1.5px solid var(--lilac-soft);
-    border-radius:var(--radius);
-    padding:40px 40px 44px;
-  }
-  @media (max-width:640px){ .proj-section{ padding:28px 22px 32px; } }
-
-  .proj-title-row{ display:flex; align-items:center; gap:12px; margin-bottom:6px; flex-wrap:wrap; }
-  .check-badge{
-    width:26px; height:26px; border-radius:50%;
-    background:var(--check-bg); color:#fff;
-    display:flex; align-items:center; justify-content:center;
-    flex-shrink:0; font-size:0.9rem;
-  }
-  .proj-title-row h2{
-    font-family:'Fraunces', serif; font-weight:600;
-    font-size:clamp(1.3rem, 3vw, 1.65rem); margin:0; color:var(--plum);
-  }
-  .proj-sub{
-    font-size:0.8rem; color:var(--lilac-border); font-weight:600;
-    letter-spacing:0.03em; text-transform:uppercase;
-    margin:0 0 26px 38px;
-  }
-
-  /* media row: photos + optional cad viewer */
-  .media-row{
-    display:grid; grid-template-columns:repeat(3, 1fr); gap:14px;
-    margin-bottom:30px;
-  }
-  @media (max-width:700px){ .media-row{ grid-template-columns:1fr; } }
-
-  .media-slot{
-    aspect-ratio:4/3;
-    border-radius:10px;
-    overflow:hidden;
-    position:relative;
-    background:var(--lilac-wash);
-  }
-  .media-slot img{ width:100%; height:100%; object-fit:cover; display:block; }
-  .placeholder-slot{
-    width:100%; height:100%;
-    display:flex; flex-direction:column; align-items:center; justify-content:center;
-    gap:6px;
-    border:1.5px dashed var(--lilac-soft);
-    border-radius:10px;
-    color:var(--lilac-border);
-    font-size:0.72rem; font-weight:600; text-align:center; padding:12px;
-  }
-  .placeholder-slot .plus{ font-size:1.4rem; line-height:1; font-weight:400; }
-
-  .cad-slot{
-    aspect-ratio:4/3; border-radius:10px; overflow:hidden;
-    background:var(--lilac-wash); position:relative;
-  }
-  .cad-slot model-viewer{ width:100%; height:100%; }
-  .cad-tag{
-    position:absolute; top:8px; left:8px;
-    background:var(--lilac-border); color:#fff;
-    font-size:0.62rem; font-weight:600; letter-spacing:0.04em; text-transform:uppercase;
-    padding:3px 8px; border-radius:5px; pointer-events:none;
-  }
-
-  .nda-badge{
-    display:inline-flex; align-items:center; gap:5px;
-    font-size:0.68rem; font-weight:700; letter-spacing:0.03em; text-transform:uppercase;
-    color:var(--plum-soft);
-    background:var(--lilac-wash);
-    border:1px solid var(--lilac-soft);
-    padding:3px 10px; border-radius:20px;
-    margin-left:8px;
-  }
-  .nda-banner{
-    display:flex; align-items:center; gap:14px;
-    background:var(--lilac-wash);
-    border:1.5px dashed var(--lilac-soft);
-    border-radius:10px;
-    padding:20px 24px;
-    margin-bottom:30px;
-  }
-  .nda-banner .lock{
-    width:34px; height:34px; flex-shrink:0;
-    border-radius:50%;
-    background:var(--white);
-    display:flex; align-items:center; justify-content:center;
-    color:var(--lilac-border);
-    font-size:1.1rem;
-  }
-  .nda-banner p{
-    margin:0; font-size:0.82rem; color:var(--plum-soft); line-height:1.5;
-  }
-  .nda-banner strong{ color:var(--plum); }
-
-  /* what / how / results columns */
-  .whr-grid{
-    display:grid; grid-template-columns:repeat(3, 1fr); gap:28px;
-  }
-  @media (max-width:700px){ .whr-grid{ grid-template-columns:1fr; gap:22px; } }
-  .whr-col h3{
-    font-size:0.78rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em;
-    color:var(--lilac-border); margin:0 0 12px;
-  }
-  .whr-col ul{ margin:0; padding-left:18px; display:flex; flex-direction:column; gap:8px; }
-  .whr-col li{ font-size:0.87rem; color:var(--plum); }
-  .whr-col li::marker{ color:var(--lilac-border); }
-
-  /* ================= FOOTER ================= */
-  footer{ text-align:center; padding:0 24px 60px; }
-  footer p{ font-size:0.78rem; color:var(--plum-soft); }
-
-  a:focus-visible, .btn:focus-visible{ outline:2px solid var(--lilac-border); outline-offset:3px; }
-</style>
+    /* ================= PROJECTS ================= */
+    main{ padding:60px 24px 100px; }
+    .proj-section{
+      max-width:var(--maxw); margin:0 auto 56px;
+      background:var(--white);
+      border:1.5px solid var(--lilac-soft);
+      border-radius:var(--radius);
+      padding:40px 40px 44px;
+    }
+    @media (max-width:640px){ .proj-section{ padding:28px 22px 32px; } }
+    .proj-title-row{ display:flex; align-items:center; gap:12px; margin-bottom:6px; flex-wrap:wrap; }
+    .proj-title-row h2{
+      font-family:'Fraunces', serif; font-weight:600;
+      font-size:clamp(1.3rem, 3vw, 1.65rem); margin:0; color:var(--plum);
+    }
+    .proj-sub{
+      font-size:0.8rem; color:var(--lilac-border); font-weight:600;
+      letter-spacing:0.03em; text-transform:uppercase;
+      margin:0 0 26px 0;
+    }
+    /* Media Row: Photos + CAD */
+    .media-row{
+      display:grid; grid-template-columns:repeat(3, 1fr); gap:14px;
+      margin-bottom:30px;
+    }
+    @media (max-width:700px){ .media-row{ grid-template-columns:1fr; } }
+    .placeholder-slot{
+      aspect-ratio:4/3;
+      width:100%; height:100%;
+      display:flex; flex-direction:column; align-items:center; justify-content:center;
+      gap:6px;
+      border:1.5px dashed var(--lilac-soft);
+      border-radius:10px;
+      background:var(--lilac-wash);
+      color:var(--lilac-border);
+      font-size:0.72rem; font-weight:600; text-align:center; padding:12px;
+    }
+    .placeholder-slot .plus{ font-size:1.4rem; line-height:1; font-weight:400; }
+    .cad-slot{
+      aspect-ratio:4/3; border-radius:10px; overflow:hidden;
+      background:var(--lilac-wash); position:relative;
+    }
+    .cad-slot model-viewer{ width:100%; height:100%; }
+    .cad-tag{
+      position:absolute; top:8px; left:8px;
+      background:var(--lilac-border); color:#fff;
+      font-size:0.62rem; font-weight:600; letter-spacing:0.04em; text-transform:uppercase;
+      padding:3px 8px; border-radius:5px; pointer-events:none;
+    }
+    /* What / How / Results Grid */
+    .whr-grid{
+      display:grid; grid-template-columns:repeat(3, 1fr); gap:28px;
+    }
+    @media (max-width:700px){ .whr-grid{ grid-template-columns:1fr; gap:22px; } }
+    .whr-col h3{
+      font-size:0.78rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em;
+      color:var(--lilac-border); margin:0 0 12px;
+    }
+    .whr-col ul{ margin:0; padding-left:18px; display:flex; flex-direction:column; gap:8px; }
+    .whr-col li{ font-size:0.87rem; color:var(--plum); }
+    .whr-col li::marker{ color:var(--lilac-border); }
+    
+    /* ================= FOOTER ================= */
+    footer{ text-align:center; padding:0 24px 60px; }
+    footer p{ font-size:0.78rem; color:var(--plum-soft); }
+    a:focus-visible, .btn:focus-visible{ outline:2px solid var(--lilac-border); outline-offset:3px; }
+  </style>
 </head>
 <body>
 
-<header class="site-header">
-  <div class="header-card">
+  <!-- ===== LANDING PAGE ===== -->
+  <section class="landing">
     <h1>Ayesha Adil</h1>
-    <p class="subtitle">Mechanical &amp; Biomedical Engineering Graduate — McMaster&nbsp;University</p>
-
-    <ul class="highlights">
-      <li><span class="hl-label">Patent-Pending Inventor</span><span class="hl-desc">Automated BioInk Syringe Filling Device</span></li>
-      <li><span class="hl-label">CAD Design</span><span class="hl-desc">SolidWorks, Autodesk Inventor &amp; Onshape</span></li>
-      <li><span class="hl-label">Startup Experience</span><span class="hl-desc">FemTech IUD Insertion Device, ReFem Tech</span></li>
-      <li><span class="hl-label">Project Management</span><span class="hl-desc">$8M brownfield expansion, Enbridge Gas</span></li>
-    </ul>
-
-    <div class="divider"></div>
-
-    <div class="actions">
-      <a class="btn btn-primary" href="resume.pdf" target="_blank" rel="noopener">View Resume</a>
-    </div>
-
-    <div class="divider"></div>
-
-    <div class="contact">
-      <a href="mailto:ayesha.adil1644@gmail.com">
+    <p>Mechanical &amp; Biomedical Engineering Graduate — McMaster University</p>
+    
+    <div class="landing-links">
+      <a class="link-item" href="mailto:ayesha.adil1644@gmail.com">
         <svg class="icon" viewBox="0 0 24 24"><path d="M3 6h18v12H3z"/><path d="m3 7 9 6 9-6"/></svg>
         ayesha.adil1644@gmail.com
       </a>
       <span class="sep">·</span>
-      <a href="https://linkedin.com/in/ayeshaadil" target="_blank" rel="noopener">
+      <a class="link-item" href="https://linkedin.com/in/ayeshaadil" target="_blank" rel="noopener">
         <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 11v5M8 8v.01M12 16v-3.2c0-1 .8-1.8 1.8-1.8 1 0 1.7.8 1.7 1.8V16"/></svg>
-        linkedin.com/in/ayeshaadil
+        LinkedIn
       </a>
-    </div>
-  </div>
-</header>
-
-<main>
-
-  <!-- ===== PROJECT 1: BIOFILL ===== -->
-  <section class="proj-section" id="biofill">
-    <div class="proj-title-row">
-      <span class="check-badge">✓</span>
-      <h2>Biofill — Automated Syringe-Filling Device</h2>
-    </div>
-    <p class="proj-sub">Patent Pending · Inventor · Tessella Biosciences</p>
-
-    <div class="media-row">
-      <div class="placeholder-slot"><span class="plus">+</span>Add photo</div>
-      <div class="placeholder-slot"><span class="plus">+</span>Add photo</div>
-      <div class="cad-slot">
-        <span class="cad-tag">CAD Model</span>
-        <model-viewer
-          src="https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Models/master/2.0/BoomBox/glTF-Binary/BoomBox.glb"
-          alt="Interactive 3D preview — replace with your Biofill CAD export"
-          camera-controls auto-rotate auto-rotate-delay="1200"
-          shadow-intensity="1" exposure="1.1" environment-image="neutral"
-          camera-orbit="20deg 75deg 105%" field-of-view="30deg"
-          interaction-prompt="none" style="background:transparent;">
-        </model-viewer>
-      </div>
+      <span class="sep">·</span>
+      <a class="btn btn-primary" href="resume.pdf" target="_blank" rel="noopener">View Resume</a>
     </div>
 
-    <div class="whr-grid">
-      <div class="whr-col">
-        <h3>What?</h3>
-        <ul>
-          <li>Designed an automated bioink syringe-filling device for a biotech client</li>
-          <li>Fills 2–10 mL syringes inside a biosafety cabinet with tight volumetric control</li>
-        </ul>
-      </div>
-      <div class="whr-col">
-        <h3>How?</h3>
-        <ul>
-          <li>Built <strong>95% of components via 3D printing</strong>, designed in Autodesk Inventor</li>
-          <li>Programmed <strong>Arduino-based control logic in C++</strong> to automate the fill cycle</li>
-          <li>Validated the housing with <strong>FEA</strong> and physical testing against motor force and piston loading</li>
-          <li>Investigated failure modes — piston detachment, locking-mechanism shear — and corrected the design</li>
-        </ul>
-      </div>
-      <div class="whr-col">
-        <h3>Results</h3>
-        <ul>
-          <li>Achieved <strong>±0.05 mL fill accuracy</strong> with ≤1 mL dead volume per cycle</li>
-          <li>Now adopted into the client's active workflow</li>
-          <li>Findings compiled into an invention disclosure supporting a formal patent application</li>
-        </ul>
-      </div>
-    </div>
+    <a href="#projects" class="scroll-prompt">
+      Scroll for projects
+      <svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5"/></svg>
+    </a>
   </section>
 
-  <!-- ===== PROJECT 2: IUD DEVICE ===== -->
-  <section class="proj-section" id="iud-device">
-    <div class="proj-title-row">
-      <span class="check-badge">✓</span>
-      <h2>Dual Gel-Suction IUD Insertion Device</h2>
-      <span class="nda-badge">🔒 Under NDA</span>
-    </div>
-    <p class="proj-sub">ReFem Tech · FemTech Startup</p>
-
-    <div class="nda-banner">
-      <span class="lock">🔒</span>
-      <p><strong>Images and CAD files for this project are protected under an NDA</strong> with ReFem Tech and can't be shown publicly. Happy to walk through the design in more detail during an interview.</p>
-    </div>
-
-    <div class="whr-grid">
-      <div class="whr-col">
-        <h3>What?</h3>
-        <ul>
-          <li>Designed a device consolidating <strong>three separate clinical instruments into one system</strong></li>
-        </ul>
+  <!-- ===== PROJECTS ===== -->
+  <main id="projects">
+    <!-- ===== PROJECT 1: BIOFILL ===== -->
+    <section class="proj-section" id="biofill">
+      <div class="proj-title-row">
+        <h2>Biofill — Automated Syringe-Filling Device</h2>
       </div>
-      <div class="whr-col">
-        <h3>How?</h3>
-        <ul>
-          <li>Designed in <strong>SolidWorks</strong>; iterated through <strong>5 physical prototypes</strong> (3D-printed)</li>
-          <li>Diagnosed tolerance, sizing, and ergonomic failures across iterations and corrected the design</li>
-          <li>Ran <strong>FMEA</strong> risk assessments and researched <strong>ISO 10993 / ISO 14971</strong> compliance</li>
-          <li>Interviewed clinicians to shape design direction</li>
-        </ul>
+      <p class="proj-sub">Patent Pending · Inventor · Tessella Biosciences</p>
+      <div class="media-row">
+        <div class="placeholder-slot"><span class="plus">+</span>Add photo</div>
+        <div class="placeholder-slot"><span class="plus">+</span>Add photo</div>
+        <div class="cad-slot">
+          <span class="cad-tag">CAD Model</span>
+          <model-viewer
+            src="https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Models/master/2.0/BoomBox/glTF-Binary/BoomBox.glb"
+            alt="Interactive 3D preview — replace with your Biofill CAD export"
+            camera-controls auto-rotate auto-rotate-delay="1200"
+            shadow-intensity="1" exposure="1.1" environment-image="neutral"
+            camera-orbit="20deg 75deg 105%" field-of-view="30deg"
+            interaction-prompt="none" style="background:transparent;">
+          </model-viewer>
+        </div>
       </div>
-      <div class="whr-col">
-        <h3>Results</h3>
-        <ul>
-          <li>Reduced 3 separate tools to <strong>1 consolidated system</strong></li>
-          <li>Authored a design specification sheet supporting an <strong>FDA 510(k)</strong> submission pathway</li>
-          <li>Contributed to securing <strong>$10,000+</strong> in startup pitch awards</li>
-        </ul>
+      <div class="whr-grid">
+        <div class="whr-col">
+          <h3>What?</h3>
+          <ul>
+            <li>Designed an automated bioink syringe-filling device for a biotech client</li>
+            <li>Fills 2–10 mL syringes inside a biosafety cabinet with tight volumetric control</li>
+          </ul>
+        </div>
+        <div class="whr-col">
+          <h3>How?</h3>
+          <ul>
+            <li>Built <strong>95% of components via 3D printing</strong>, designed in Autodesk Inventor</li>
+            <li>Programmed <strong>Arduino-based control logic in C++</strong> to automate the fill cycle</li>
+            <li>Validated the housing with <strong>FEA</strong> and physical testing against motor force and piston loading</li>
+            <li>Investigated failure modes — piston detachment, locking-mechanism shear — and corrected the design</li>
+          </ul>
+        </div>
+        <div class="whr-col">
+          <h3>Results</h3>
+          <ul>
+            <li>Achieved <strong>±0.05 mL fill accuracy</strong> with ≤1 mL dead volume per cycle</li>
+            <li>Now adopted into the client's active workflow</li>
+            <li>Findings compiled into an invention disclosure supporting a formal patent application</li>
+          </ul>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ===== PROJECT 3: PICKUP TRUCK ===== -->
-  <section class="proj-section" id="pickup-truck">
-    <div class="proj-title-row">
-      <span class="check-badge">✓</span>
-      <h2>Pickup Truck — CAD &amp; Simulation</h2>
-    </div>
-    <p class="proj-sub">Course Project</p>
-
-    <div class="media-row">
-      <div class="placeholder-slot"><span class="plus">+</span>Add photo</div>
-      <div class="placeholder-slot"><span class="plus">+</span>Add photo</div>
-      <div class="placeholder-slot"><span class="plus">+</span>Add CAD model (.glb)</div>
-    </div>
-
-    <div class="whr-grid">
-      <div class="whr-col">
-        <h3>What?</h3>
-        <ul>
-          <li>Modeled a full pickup truck assembly — drivetrain, chassis, and mounts</li>
-        </ul>
+    <!-- ===== PROJECT 2: IUD DEVICE ===== -->
+    <section class="proj-section" id="iud-device">
+      <div class="proj-title-row">
+        <h2>Dual Gel-Suction IUD Insertion Device</h2>
       </div>
-      <div class="whr-col">
-        <h3>How?</h3>
-        <ul>
-          <li>Designed the full assembly in <strong>Autodesk Inventor</strong></li>
-          <li>Ran <strong>stress, motion, and CAM simulations</strong> to evaluate structural integrity under load</li>
-        </ul>
+      <p class="proj-sub">ReFem Tech · FemTech Startup</p>
+      <div class="media-row">
+        <div class="placeholder-slot"><span class="plus">+</span>Add photo</div>
+        <div class="placeholder-slot"><span class="plus">+</span>Add photo</div>
+        <div class="placeholder-slot"><span class="plus">+</span>Add CAD model (.glb)</div>
       </div>
-      <div class="whr-col">
-        <h3>Results</h3>
-        <ul>
-          <li>Delivered a complete engineering drawing package validated against simulated load conditions</li>
-        </ul>
+      <div class="whr-grid">
+        <div class="whr-col">
+          <h3>What?</h3>
+          <ul>
+            <li>Designed a device consolidating <strong>three separate clinical instruments into one system</strong></li>
+          </ul>
+        </div>
+        <div class="whr-col">
+          <h3>How?</h3>
+          <ul>
+            <li>Designed in <strong>SolidWorks</strong>; iterated through <strong>5 physical prototypes</strong> (3D-printed)</li>
+            <li>Diagnosed tolerance, sizing, and ergonomic failures across iterations and corrected the design</li>
+            <li>Ran <strong>FMEA</strong> risk assessments and researched <strong>ISO 10993 / ISO 14971</strong> compliance</li>
+            <li>Interviewed clinicians to shape design direction</li>
+          </ul>
+        </div>
+        <div class="whr-col">
+          <h3>Results</h3>
+          <ul>
+            <li>Reduced 3 separate tools to <strong>1 consolidated system</strong></li>
+            <li>Authored a design specification sheet supporting an <strong>FDA 510(k)</strong> submission pathway</li>
+            <li>Contributed to securing <strong>$10,000+</strong> in startup pitch awards</li>
+          </ul>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ===== PROJECT 4: GAIT ANALYSIS ===== -->
-  <section class="proj-section" id="gait-analysis">
-    <div class="proj-title-row">
-      <span class="check-badge">✓</span>
-      <h2>Pediatric Gait Analysis Device</h2>
-    </div>
-    <p class="proj-sub">Course Project · Biomechanics</p>
-
-    <div class="media-row">
-      <div class="placeholder-slot"><span class="plus">+</span>Add photo</div>
-      <div class="placeholder-slot"><span class="plus">+</span>Add photo</div>
-      <div class="placeholder-slot"><span class="plus">+</span>Add photo</div>
-    </div>
-
-    <div class="whr-grid">
-      <div class="whr-col">
-        <h3>What?</h3>
-        <ul>
-          <li>Built a remote gait-analysis tool to study kinematic patterns linked to cerebral palsy</li>
-        </ul>
+    <!-- ===== PROJECT 3: GAIT ANALYSIS ===== -->
+    <section class="proj-section" id="gait-analysis">
+      <div class="proj-title-row">
+        <h2>Pediatric Gait Analysis Device</h2>
       </div>
-      <div class="whr-col">
-        <h3>How?</h3>
-        <ul>
-          <li>Measured ankle dorsiflexion using <strong>gyroscope and pressure sensors</strong></li>
-          <li>Processed the resulting kinematic data for analysis</li>
-        </ul>
+      <p class="proj-sub">Course Project · Biomechanics</p>
+      <div class="media-row">
+        <div class="placeholder-slot"><span class="plus">+</span>Add photo</div>
+        <div class="placeholder-slot"><span class="plus">+</span>Add photo</div>
+        <div class="placeholder-slot"><span class="plus">+</span>Add photo</div>
       </div>
-      <div class="whr-col">
-        <h3>Results</h3>
-        <ul>
-          <li>Generated trajectory, velocity, and movement data supporting biomechanical analysis of gait patterns</li>
-        </ul>
+      <div class="whr-grid">
+        <div class="whr-col">
+          <h3>What?</h3>
+          <ul>
+            <li>Built a remote gait-analysis tool to study kinematic patterns linked to cerebral palsy</li>
+          </ul>
+        </div>
+        <div class="whr-col">
+          <h3>How?</h3>
+          <ul>
+            <li>Measured ankle dorsiflexion using <strong>gyroscope and pressure sensors</strong></li>
+            <li>Processed the resulting kinematic data for analysis</li>
+          </ul>
+        </div>
+        <div class="whr-col">
+          <h3>Results</h3>
+          <ul>
+            <li>Generated trajectory, velocity, and movement data supporting biomechanical analysis of gait patterns</li>
+          </ul>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ===== PROJECT 5: CHROMATOGRAPHY ===== -->
-  <section class="proj-section" id="chromatography">
-    <div class="proj-title-row">
-      <span class="check-badge">✓</span>
-      <h2>Chromatography Flow Device</h2>
-    </div>
-    <p class="proj-sub">McMaster University Research</p>
-
-    <div class="media-row">
-      <div class="placeholder-slot"><span class="plus">+</span>Add photo</div>
-      <div class="placeholder-slot"><span class="plus">+</span>Add photo</div>
-      <div class="placeholder-slot"><span class="plus">+</span>Add photo</div>
-    </div>
-
-    <div class="whr-grid">
-      <div class="whr-col">
-        <h3>What?</h3>
-        <ul>
-          <li>Evaluated flow uniformity in a chromatography device used for vaccine purification</li>
-        </ul>
+    <!-- ===== PROJECT 4: CHROMATOGRAPHY ===== -->
+    <section class="proj-section" id="chromatography">
+      <div class="proj-title-row">
+        <h2>Chromatography Flow Device</h2>
       </div>
-      <div class="whr-col">
-        <h3>How?</h3>
-        <ul>
-          <li>Ran wet-lab experiments and <strong>COMSOL simulations</strong></li>
-          <li>Diagnosed leaks within the system</li>
-        </ul>
+      <p class="proj-sub">McMaster University Research</p>
+      <div class="media-row">
+        <div class="placeholder-slot"><span class="plus">+</span>Add photo</div>
+        <div class="placeholder-slot"><span class="plus">+</span>Add photo</div>
+        <div class="placeholder-slot"><span class="plus">+</span>Add photo</div>
       </div>
-      <div class="whr-col">
-        <h3>Results</h3>
-        <ul>
-          <li>Resolved leaks via added fasteners and a gasket redesign</li>
-          <li>Documented findings in a technical report presented to faculty</li>
-        </ul>
+      <div class="whr-grid">
+        <div class="whr-col">
+          <h3>What?</h3>
+          <ul>
+            <li>Evaluated flow uniformity in a chromatography device used for vaccine purification</li>
+          </ul>
+        </div>
+        <div class="whr-col">
+          <h3>How?</h3>
+          <ul>
+            <li>Ran wet-lab experiments and <strong>COMSOL simulations</strong></li>
+            <li>Diagnosed leaks within the system</li>
+          </ul>
+        </div>
+        <div class="whr-col">
+          <h3>Results</h3>
+          <ul>
+            <li>Resolved leaks via added fasteners and a gasket redesign</li>
+            <li>Documented findings in a technical report presented to faculty</li>
+          </ul>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
-</main>
-
-<footer>
-  <p>© 2026 Ayesha Adil — ayesha.adil1644@gmail.com</p>
-</footer>
-
+  <footer>
+    <p>© 2026 Ayesha Adil — ayesha.adil1644@gmail.com</p>
+  </footer>
 </body>
 </html>
