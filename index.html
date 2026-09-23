@@ -194,6 +194,19 @@
       background:var(--lilac-border);
     }
 
+    /* NDA Notice Box */
+    .nda-notice{
+      background:#f1ecf7;
+      border:1.5px solid var(--lilac-soft);
+      border-left:4px solid var(--lilac-border);
+      border-radius:10px;
+      padding:14px 18px;
+      margin:0 0 26px 0;
+      font-size:0.85rem;
+      color:var(--plum-soft);
+    }
+    .nda-notice strong{ color:var(--plum); }
+
     /* Media Row: Photos + CAD */
     .media-row{
       display:grid; grid-template-columns:repeat(3, 1fr); gap:14px;
@@ -337,6 +350,11 @@
         <span class="nda-tag">Under NDA</span>
       </div>
 
+      <div class="nda-notice">
+        <strong>This project is under a non-disclosure agreement (NDA).</strong>
+        That means some details, images, and results are confidential, so only a general overview is shown here. I'm happy to share more in an interview where I'm able to.
+      </div>
+
       <div class="whr-grid">
         <div class="whr-col">
           <h3>What?</h3>
@@ -365,49 +383,13 @@
       </div>
     </section>
 
-    <!-- ===== PROJECT 3: ENBRIDGE PROJECT TRACKER ===== -->
-    <section class="proj-section" id="enbridge-tracker">
-      <div class="proj-title-row">
-        <h2>Engineering Operations Project Tracker <span class="proj-tools">— Excel (VBA), Power BI, MS Project</span></h2>
-      </div>
-      <div class="proj-sub-row">
-        <p class="proj-sub">Enbridge Gas · Mechanical Engineering Co-op</p>
-        <span class="nda-tag">Under NDA</span>
-      </div>
-
-      <div class="whr-grid">
-        <div class="whr-col">
-          <h3>What?</h3>
-          <ul>
-            <li>Built an automated operational tracking tool to streamline mechanical project workflows and station data</li>
-            <li>Centralized engineering project milestones and documentation access for regional teams</li>
-          </ul>
-        </div>
-        <div class="whr-col">
-          <h3>How?</h3>
-          <ul>
-            <li>Engineered custom tracking logic, automated status reporting, and data validation rules</li>
-            <li>Collaborated with station design teams to align technical specifications with operational constraints</li>
-            <li>Standardized project data structures to reduce manual entry errors across engineering teams</li>
-          </ul>
-        </div>
-        <div class="whr-col">
-          <h3>Results</h3>
-          <ul>
-            <li>Significantly reduced administrative overhead and tracking delays for station design projects</li>
-            <li>Improved cross-departmental visibility on active station modifications and technical reviews</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== PROJECT 4: GAIT ANALYSIS ===== -->
+    <!-- ===== PROJECT 3: GAIT ANALYSIS ===== -->
     <section class="proj-section" id="gait-analysis">
       <div class="proj-title-row">
-        <h2>Pediatric Gait Analysis Device <span class="proj-tools">— Python, Arduino, Gyro/Pressure Sensors, Inventor</span></h2>
+        <h2>Pediatric Cerebral Palsy Remote Gait Analysis Device <span class="proj-tools">— Arduino, BNO055, Force Sensor</span></h2>
       </div>
       <div class="proj-sub-row">
-        <p class="proj-sub">Course Project · Biomechanics</p>
+        <p class="proj-sub">IBEHS 3P03: Health Solutions Design Problems · 2024</p>
       </div>
       <div class="media-row">
         <div class="placeholder-slot"><span class="plus">+</span>Add photo</div>
@@ -418,53 +400,129 @@
         <div class="whr-col">
           <h3>What?</h3>
           <ul>
-            <li>Built a remote gait-analysis tracking tool to study kinematic movement patterns linked to cerebral palsy</li>
+            <li>Built an Arduino-based device to investigate <strong>equinus gait</strong> in children with cerebral palsy</li>
           </ul>
         </div>
         <div class="whr-col">
           <h3>How?</h3>
           <ul>
-            <li>Measured ankle dorsiflexion angles using <strong>gyroscope and pressure sensors</strong></li>
-            <li>Processed kinematic sensor data in <strong>Python</strong> to extract real-time biomechanical movement metrics</li>
+            <li>Researched which gait factors are most relevant to track</li>
+            <li>Used a <strong>BNO055 sensor and a force sensor</strong> to measure force distribution on the sole of the foot and the relative angle between tibia and foot over time</li>
+            <li>Met with clinicians to present the data in a clinically relevant way</li>
           </ul>
         </div>
         <div class="whr-col">
           <h3>Results</h3>
           <ul>
-            <li>Generated trajectory, velocity, and angular movement data supporting clinical gait assessment</li>
+            <li>Built a prototype that <strong>performed successfully in trial runs</strong></li>
           </ul>
         </div>
       </div>
     </section>
 
-    <!-- ===== PROJECT 5: CHROMATOGRAPHY ===== -->
-    <section class="proj-section" id="chromatography">
+    <!-- ===== PROJECT 4: PICK-UP TRUCK ===== -->
+    <section class="proj-section" id="pickup-truck">
       <div class="proj-title-row">
-        <h2>Chromatography Flow Device <span class="proj-tools">— COMSOL, SolidWorks/Inventor, CFD</span></h2>
+        <h2>Pick-up Truck <span class="proj-tools">— Autodesk Inventor, Fusion 360</span></h2>
       </div>
       <div class="proj-sub-row">
-        <p class="proj-sub">McMaster University · Research Assistantship</p>
-        <span class="nda-tag">Under NDA</span>
+        <p class="proj-sub">MECHENG 4Z03: CAD Course · 2024</p>
+      </div>
+      <div class="media-row">
+        <div class="placeholder-slot"><span class="plus">+</span>Add photo</div>
+        <div class="placeholder-slot"><span class="plus">+</span>Add photo</div>
+        <div class="placeholder-slot"><span class="plus">+</span>Add CAD render</div>
       </div>
       <div class="whr-grid">
         <div class="whr-col">
           <h3>What?</h3>
           <ul>
-            <li>Evaluated flow uniformity in a specialized chromatography device used for vaccine purification</li>
+            <li>Modeled a complete pick-up truck in 3D, including a small gearbox of my own design</li>
           </ul>
         </div>
         <div class="whr-col">
           <h3>How?</h3>
           <ul>
-            <li>Executed wet-lab flow experiments alongside <strong>COMSOL Multiphysics simulations</strong></li>
-            <li>Diagnosed fluid leakage and flow distribution bottlenecks within the prototype housing</li>
+            <li>Modeled <strong>4 wheels, axles, a custom gearbox, motor and battery mounts, fasteners, bearings, and the body</strong> in Autodesk Inventor</li>
+            <li>Completed assembly modelling and developed a comprehensive drawing package</li>
           </ul>
         </div>
         <div class="whr-col">
           <h3>Results</h3>
           <ul>
-            <li>Resolved leaks via added structural fasteners and a redesigned sealing gasket</li>
-            <li>Documented findings in a comprehensive technical report presented to faculty</li>
+            <li>Performed a <strong>stress simulation, motion study, and CAM simulation</strong> in Fusion 360</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PROJECT 5: ANTIBACTERIAL PHONE CASE ===== -->
+    <section class="proj-section" id="phone-case">
+      <div class="proj-title-row">
+        <h2>Biomimetic Antibacterial Phone Case <span class="proj-tools">— SolidWorks</span></h2>
+      </div>
+      <div class="proj-sub-row">
+        <p class="proj-sub">MDL CADathon · 1st Place · 2025</p>
+      </div>
+      <div class="media-row">
+        <div class="placeholder-slot"><span class="plus">+</span>Add photo</div>
+        <div class="placeholder-slot"><span class="plus">+</span>Add photo</div>
+        <div class="placeholder-slot"><span class="plus">+</span>Add CAD render</div>
+      </div>
+      <div class="whr-grid">
+        <div class="whr-col">
+          <h3>What?</h3>
+          <ul>
+            <li>Designed a phone case with a shark-skin-inspired surface texture that disrupts biofilm formation <strong>without chemical agents</strong></li>
+          </ul>
+        </div>
+        <div class="whr-col">
+          <h3>How?</h3>
+          <ul>
+            <li>Modeled the micropatterned surface topography in <strong>SolidWorks</strong></li>
+            <li>Researched the most effective dimensions: protruding micropatterned surfaces with a shallow groove, <strong>2 µm width and spacing, 0.4 µm height</strong></li>
+            <li>Developed a manufacturing plan</li>
+          </ul>
+        </div>
+        <div class="whr-col">
+          <h3>Results</h3>
+          <ul>
+            <li>Won <strong>1st place</strong> at the MDL CADathon</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PROJECT 6: TWIST ASSIST ===== -->
+    <section class="proj-section" id="twist-assist">
+      <div class="proj-title-row">
+        <h2>Twist Assist — Assistive Device for Elderly with Arthritis <span class="proj-tools">— Autodesk Inventor, 3D Printing</span></h2>
+      </div>
+      <div class="proj-sub-row">
+        <p class="proj-sub">MDL CADathon · 2024</p>
+      </div>
+      <div class="media-row">
+        <div class="placeholder-slot"><span class="plus">+</span>Add photo</div>
+        <div class="placeholder-slot"><span class="plus">+</span>Add photo</div>
+        <div class="placeholder-slot"><span class="plus">+</span>Add CAD render</div>
+      </div>
+      <div class="whr-grid">
+        <div class="whr-col">
+          <h3>What?</h3>
+          <ul>
+            <li>Designed an assistive tool for elderly users with arthritis</li>
+          </ul>
+        </div>
+        <div class="whr-col">
+          <h3>How?</h3>
+          <ul>
+            <li>Used <strong>Autodesk Inventor</strong> to develop assistive tools that accommodate limited range of motion, reduce pain, and preserve joint health</li>
+          </ul>
+        </div>
+        <div class="whr-col">
+          <h3>Results</h3>
+          <ul>
+            <li>Demonstrated the design concept with a <strong>3D-printed prototype</strong></li>
           </ul>
         </div>
       </div>
