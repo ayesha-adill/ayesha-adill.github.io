@@ -61,7 +61,7 @@
     .landing p{
       font-size:clamp(1rem, 2.5vw, 1.25rem);
       color:var(--plum-soft);
-      margin:0 0 32px 0;
+      margin:0 0 12px 0;
       font-weight:500;
     }
 
@@ -72,7 +72,7 @@
       justify-content:center;
       gap:16px;
       flex-wrap:wrap;
-      margin-bottom:20px;
+      margin-bottom:16px;
     }
     .landing-links a.link-item{
       font-size:0.9rem;
@@ -88,6 +88,13 @@
     .landing-links .sep{ color:var(--lilac-soft); font-size:0.9rem; }
     .landing-links .icon{ width:16px; height:16px; flex-shrink:0; stroke:var(--lilac-border); fill:none; stroke-width:1.8; }
     
+    /* Center Button Container */
+    .landing-btn-container{
+      display:flex;
+      justify-content:center;
+      margin-bottom:20px;
+    }
+
     .btn{
       font-size:0.88rem; font-weight:600; letter-spacing:0.01em;
       text-decoration:none; padding:10px 22px; border-radius:8px;
@@ -131,16 +138,62 @@
       padding:40px 40px 44px;
     }
     @media (max-width:640px){ .proj-section{ padding:28px 22px 32px; } }
-    .proj-title-row{ display:flex; align-items:center; gap:12px; margin-bottom:6px; flex-wrap:wrap; }
+    
+    .proj-title-row{ 
+      display:flex; 
+      align-items:baseline; 
+      justify-content:space-between;
+      gap:12px; 
+      margin-bottom:6px; 
+      flex-wrap:wrap; 
+    }
     .proj-title-row h2{
       font-family:'Fraunces', serif; font-weight:600;
       font-size:clamp(1.3rem, 3vw, 1.65rem); margin:0; color:var(--plum);
     }
+    .proj-tools{
+      font-family:'Inter', sans-serif;
+      font-weight:400;
+      font-size:0.95rem;
+      color:var(--plum-soft);
+    }
+
+    /* Subtitle & Badges */
+    .proj-sub-row{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      margin:0 0 26px 0;
+      flex-wrap:wrap;
+    }
     .proj-sub{
       font-size:0.8rem; color:var(--lilac-border); font-weight:600;
       letter-spacing:0.03em; text-transform:uppercase;
-      margin:0 0 26px 0;
+      margin:0;
     }
+    .nda-tag{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      background: #f1ecf7;
+      color: var(--plum-soft);
+      border: 1px solid var(--lilac-soft);
+      font-size:0.68rem;
+      font-weight:700;
+      letter-spacing:0.04em;
+      text-transform:uppercase;
+      padding:3px 10px;
+      border-radius:20px;
+    }
+    .nda-tag::before{
+      content:"";
+      display:inline-block;
+      width:6px;
+      height:6px;
+      border-radius:50%;
+      background:var(--lilac-border);
+    }
+
     /* Media Row: Photos + CAD */
     .media-row{
       display:grid; grid-template-columns:repeat(3, 1fr); gap:14px;
@@ -170,6 +223,7 @@
       font-size:0.62rem; font-weight:600; letter-spacing:0.04em; text-transform:uppercase;
       padding:3px 8px; border-radius:5px; pointer-events:none;
     }
+
     /* What / How / Results Grid */
     .whr-grid{
       display:grid; grid-template-columns:repeat(3, 1fr); gap:28px;
@@ -206,7 +260,10 @@
         <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 11v5M8 8v.01M12 16v-3.2c0-1 .8-1.8 1.8-1.8 1 0 1.7.8 1.7 1.8V16"/></svg>
         LinkedIn
       </a>
-      <span class="sep">·</span>
+    </div>
+
+    <!-- Centered Resume Button -->
+    <div class="landing-btn-container">
       <a class="btn btn-primary" href="resume.pdf" target="_blank" rel="noopener">View Resume</a>
     </div>
 
@@ -218,12 +275,15 @@
 
   <!-- ===== PROJECTS ===== -->
   <main id="projects">
+
     <!-- ===== PROJECT 1: BIOFILL ===== -->
     <section class="proj-section" id="biofill">
       <div class="proj-title-row">
-        <h2>Biofill — Automated Syringe-Filling Device</h2>
+        <h2>Biofill — Automated Syringe-Filling Device <span class="proj-tools">— Inventor, C++, Excel, 3D Printing</span></h2>
       </div>
-      <p class="proj-sub">Patent Pending · Inventor · Tessella Biosciences</p>
+      <div class="proj-sub-row">
+        <p class="proj-sub">Patent Pending · Co-Inventor · Capstone Project</p>
+      </div>
       <div class="media-row">
         <div class="placeholder-slot"><span class="plus">+</span>Add photo</div>
         <div class="placeholder-slot"><span class="plus">+</span>Add photo</div>
@@ -252,127 +312,164 @@
           <ul>
             <li>Built <strong>95% of components via 3D printing</strong>, designed in Autodesk Inventor</li>
             <li>Programmed <strong>Arduino-based control logic in C++</strong> to automate the fill cycle</li>
-            <li>Validated the housing with <strong>FEA</strong> and physical testing against motor force and piston loading</li>
-            <li>Investigated failure modes — piston detachment, locking-mechanism shear — and corrected the design</li>
+            <li>Validated housing with <strong>FEA</strong> and physical testing against motor force and piston loading</li>
+            <li>Investigated failure modes (piston detachment, locking mechanism shear) and corrected the design</li>
           </ul>
         </div>
         <div class="whr-col">
           <h3>Results</h3>
           <ul>
             <li>Achieved <strong>±0.05 mL fill accuracy</strong> with ≤1 mL dead volume per cycle</li>
-            <li>Now adopted into the client's active workflow</li>
-            <li>Findings compiled into an invention disclosure supporting a formal patent application</li>
+            <li>Adopted directly into client's active workflow</li>
+            <li>Authored invention disclosure supporting a formal patent application</li>
           </ul>
         </div>
       </div>
     </section>
 
-    <!-- ===== PROJECT 2: IUD DEVICE ===== -->
-    <section class="proj-section" id="iud-device">
+    <!-- ===== PROJECT 2: REFEM (IUD DEVICE) ===== -->
+    <section class="proj-section" id="refem">
       <div class="proj-title-row">
-        <h2>Dual Gel-Suction IUD Insertion Device</h2>
+        <h2>Dual Gel-Suction IUD Insertion Device <span class="proj-tools">— Onshape, Inventor, Fusion 360, 3D Printing</span></h2>
       </div>
-      <p class="proj-sub">ReFem Tech · FemTech Startup</p>
-      <div class="media-row">
-        <div class="placeholder-slot"><span class="plus">+</span>Add photo</div>
-        <div class="placeholder-slot"><span class="plus">+</span>Add photo</div>
-        <div class="placeholder-slot"><span class="plus">+</span>Add CAD model (.glb)</div>
+      <div class="proj-sub-row">
+        <p class="proj-sub">ReFem Tech · FemTech Startup</p>
+        <span class="nda-tag">Under NDA</span>
       </div>
+
       <div class="whr-grid">
         <div class="whr-col">
           <h3>What?</h3>
           <ul>
             <li>Designed a device consolidating <strong>three separate clinical instruments into one system</strong></li>
+            <li>Focused on improving patient comfort and streamlining gynecological insertion procedures</li>
           </ul>
         </div>
         <div class="whr-col">
           <h3>How?</h3>
           <ul>
-            <li>Designed in <strong>SolidWorks</strong>; iterated through <strong>5 physical prototypes</strong> (3D-printed)</li>
-            <li>Diagnosed tolerance, sizing, and ergonomic failures across iterations and corrected the design</li>
+            <li>Designed in CAD; iterated through <strong>5 physical prototypes</strong> (3D-printed)</li>
+            <li>Participated in Root Cause Analysis to diagnose tolerance, sizing, and ergonomic failures</li>
             <li>Ran <strong>FMEA</strong> risk assessments and researched <strong>ISO 10993 / ISO 14971</strong> compliance</li>
-            <li>Interviewed clinicians to shape design direction</li>
+            <li>Interviewed clinicians to shape mechanical design direction</li>
           </ul>
         </div>
         <div class="whr-col">
           <h3>Results</h3>
           <ul>
-            <li>Reduced 3 separate tools to <strong>1 consolidated system</strong></li>
-            <li>Authored a design specification sheet supporting an <strong>FDA 510(k)</strong> submission pathway</li>
+            <li>Consolidated 3 clinical tools into <strong>1 unified system</strong></li>
+            <li>Authored design specification sheet supporting <strong>FDA 510(k)</strong> submission pathway</li>
             <li>Contributed to securing <strong>$10,000+</strong> in startup pitch awards</li>
           </ul>
         </div>
       </div>
     </section>
 
-    <!-- ===== PROJECT 3: GAIT ANALYSIS ===== -->
-    <section class="proj-section" id="gait-analysis">
+    <!-- ===== PROJECT 3: ENBRIDGE PROJECT TRACKER ===== -->
+    <section class="proj-section" id="enbridge-tracker">
       <div class="proj-title-row">
-        <h2>Pediatric Gait Analysis Device</h2>
+        <h2>Engineering Operations Project Tracker <span class="proj-tools">— Excel (VBA), Power BI, MS Project</span></h2>
       </div>
-      <p class="proj-sub">Course Project · Biomechanics</p>
-      <div class="media-row">
-        <div class="placeholder-slot"><span class="plus">+</span>Add photo</div>
-        <div class="placeholder-slot"><span class="plus">+</span>Add photo</div>
-        <div class="placeholder-slot"><span class="plus">+</span>Add photo</div>
+      <div class="proj-sub-row">
+        <p class="proj-sub">Enbridge Gas · Mechanical Engineering Co-op</p>
+        <span class="nda-tag">Under NDA</span>
       </div>
+
       <div class="whr-grid">
         <div class="whr-col">
           <h3>What?</h3>
           <ul>
-            <li>Built a remote gait-analysis tool to study kinematic patterns linked to cerebral palsy</li>
+            <li>Built an automated operational tracking tool to streamline mechanical project workflows and station data</li>
+            <li>Centralized engineering project milestones and documentation access for regional teams</li>
           </ul>
         </div>
         <div class="whr-col">
           <h3>How?</h3>
           <ul>
-            <li>Measured ankle dorsiflexion using <strong>gyroscope and pressure sensors</strong></li>
-            <li>Processed the resulting kinematic data for analysis</li>
+            <li>Engineered custom tracking logic, automated status reporting, and data validation rules</li>
+            <li>Collaborated with station design teams to align technical specifications with operational constraints</li>
+            <li>Standardized project data structures to reduce manual entry errors across engineering teams</li>
           </ul>
         </div>
         <div class="whr-col">
           <h3>Results</h3>
           <ul>
-            <li>Generated trajectory, velocity, and movement data supporting biomechanical analysis of gait patterns</li>
+            <li>Significantly reduced administrative overhead and tracking delays for station design projects</li>
+            <li>Improved cross-departmental visibility on active station modifications and technical reviews</li>
           </ul>
         </div>
       </div>
     </section>
 
-    <!-- ===== PROJECT 4: CHROMATOGRAPHY ===== -->
-    <section class="proj-section" id="chromatography">
+    <!-- ===== PROJECT 4: GAIT ANALYSIS ===== -->
+    <section class="proj-section" id="gait-analysis">
       <div class="proj-title-row">
-        <h2>Chromatography Flow Device</h2>
+        <h2>Pediatric Gait Analysis Device <span class="proj-tools">— Python, Arduino, Gyro/Pressure Sensors, Inventor</span></h2>
       </div>
-      <p class="proj-sub">McMaster University Research</p>
+      <div class="proj-sub-row">
+        <p class="proj-sub">Course Project · Biomechanics</p>
+      </div>
       <div class="media-row">
         <div class="placeholder-slot"><span class="plus">+</span>Add photo</div>
         <div class="placeholder-slot"><span class="plus">+</span>Add photo</div>
-        <div class="placeholder-slot"><span class="plus">+</span>Add photo</div>
+        <div class="placeholder-slot"><span class="plus">+</span>Add plot / data visualization</div>
       </div>
       <div class="whr-grid">
         <div class="whr-col">
           <h3>What?</h3>
           <ul>
-            <li>Evaluated flow uniformity in a chromatography device used for vaccine purification</li>
+            <li>Built a remote gait-analysis tracking tool to study kinematic movement patterns linked to cerebral palsy</li>
           </ul>
         </div>
         <div class="whr-col">
           <h3>How?</h3>
           <ul>
-            <li>Ran wet-lab experiments and <strong>COMSOL simulations</strong></li>
-            <li>Diagnosed leaks within the system</li>
+            <li>Measured ankle dorsiflexion angles using <strong>gyroscope and pressure sensors</strong></li>
+            <li>Processed kinematic sensor data in <strong>Python</strong> to extract real-time biomechanical movement metrics</li>
           </ul>
         </div>
         <div class="whr-col">
           <h3>Results</h3>
           <ul>
-            <li>Resolved leaks via added fasteners and a gasket redesign</li>
-            <li>Documented findings in a technical report presented to faculty</li>
+            <li>Generated trajectory, velocity, and angular movement data supporting clinical gait assessment</li>
           </ul>
         </div>
       </div>
     </section>
+
+    <!-- ===== PROJECT 5: CHROMATOGRAPHY ===== -->
+    <section class="proj-section" id="chromatography">
+      <div class="proj-title-row">
+        <h2>Chromatography Flow Device <span class="proj-tools">— COMSOL, SolidWorks/Inventor, CFD</span></h2>
+      </div>
+      <div class="proj-sub-row">
+        <p class="proj-sub">McMaster University · Research Assistantship</p>
+        <span class="nda-tag">Under NDA</span>
+      </div>
+      <div class="whr-grid">
+        <div class="whr-col">
+          <h3>What?</h3>
+          <ul>
+            <li>Evaluated flow uniformity in a specialized chromatography device used for vaccine purification</li>
+          </ul>
+        </div>
+        <div class="whr-col">
+          <h3>How?</h3>
+          <ul>
+            <li>Executed wet-lab flow experiments alongside <strong>COMSOL Multiphysics simulations</strong></li>
+            <li>Diagnosed fluid leakage and flow distribution bottlenecks within the prototype housing</li>
+          </ul>
+        </div>
+        <div class="whr-col">
+          <h3>Results</h3>
+          <ul>
+            <li>Resolved leaks via added structural fasteners and a redesigned sealing gasket</li>
+            <li>Documented findings in a comprehensive technical report presented to faculty</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <footer>
