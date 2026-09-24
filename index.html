@@ -192,65 +192,84 @@
     footer p{ font-size:0.78rem; color:var(--plum-soft); }
     a:focus-visible, .btn:focus-visible{ outline:2px solid var(--lilac-border); outline-offset:3px; }
 
-    /* ================= PRINT / PDF (A4 SPECIFIC) ================= */
+    /* ================= PRINT / PDF (CLEAN & FULL-WIDTH) ================= */
     @media print {
       @page {
-        size: A4 portrait;
-        margin: 8mm 10mm;
+        size: letter portrait;
+        margin: 12mm 15mm;
       }
       body {
         background: #ffffff !important;
-        color: #000000 !important;
-        font-size: 8.5pt !important;
-        line-height: 1.25 !important;
+        color: var(--plum) !important;
+        font-size: 9.5pt !important;
+        line-height: 1.4 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
       }
 
-      /* Compact header at the top of Page 1 */
+      /* Clean Header at top of PDF */
       .landing {
         height: auto !important;
         min-height: 0 !important;
-        padding: 0 0 8px 0 !important;
+        padding: 0 0 16px 0 !important;
         background: none !important;
+        border-bottom: 2px solid var(--lilac-soft) !important;
+        margin-bottom: 20px !important;
       }
-      .landing h1 { font-size: 1.6rem !important; margin-bottom: 2px !important; }
-      .landing p { font-size: 0.85rem !important; margin-bottom: 4px !important; }
-      .landing-links { margin-bottom: 0 !important; }
-      .landing-links a.link-item { font-size: 0.75rem !important; }
+      .landing h1 { font-size: 2.2rem !important; margin-bottom: 4px !important; color: var(--plum) !important; }
+      .landing p { font-size: 1rem !important; margin-bottom: 8px !important; color: var(--plum-soft) !important; }
+      .landing-links { margin-bottom: 0 !important; gap: 16px !important; }
+      .landing-links a.link-item { font-size: 0.85rem !important; color: var(--plum-soft) !important; }
       .scroll-prompt, .landing-btn-container, .lightbox { display: none !important; }
 
       main { padding: 0 !important; }
 
+      /* Remove harsh box borders for a clean presentation */
       .proj-section {
-        border: 1px solid var(--lilac-soft) !important;
-        border-radius: 8px !important;
-        padding: 12px 14px !important;
-        margin: 0 0 0 0 !important;
+        border: none !important;
+        border-radius: 0 !important;
+        padding: 0 !important;
+        margin: 0 0 32px 0 !important;
         page-break-inside: avoid !important;
         break-inside: avoid !important;
-        page-break-after: always !important;
-        break-after: page !important;
-      }
-      .proj-section:last-of-type {
         page-break-after: auto !important;
         break-after: auto !important;
       }
 
-      .proj-title-row h2 { font-size: 1.1rem !important; }
-      .proj-tools { font-size: 0.75rem !important; }
-      .proj-sub-row { margin-bottom: 8px !important; }
+      .proj-title-row h2 { font-size: 1.35rem !important; color: var(--plum) !important; }
+      .proj-tools { font-size: 0.85rem !important; color: var(--plum-soft) !important; }
+      .proj-sub { font-size: 0.8rem !important; color: var(--lilac-border) !important; }
+      .proj-sub-row { margin-bottom: 14px !important; }
 
-      /* Biofill specific sizing to fit Page 1 alongside Header */
-      #biofill .poster { margin-bottom: 6px !important; }
-      #biofill .poster img { max-height: 125px !important; object-fit: contain !important; }
-      #biofill .media-row { grid-template-columns: repeat(2, 1fr) !important; gap: 8px !important; margin-bottom: 8px !important; }
-      #biofill .photo { aspect-ratio: 16/7 !important; }
+      /* Expanded, full-width figures */
+      .poster, .photo {
+        border: none !important;
+        border-radius: 6px !important;
+        background: transparent !important;
+        width: 100% !important;
+      }
+      .poster img {
+        width: 100% !important;
+        max-height: 280px !important;
+        object-fit: contain !important;
+      }
+      .poster figcaption {
+        font-size: 0.8rem !important;
+        padding: 4px 0 10px 0 !important;
+        color: var(--plum-soft) !important;
+      }
 
-      .whr-grid { gap: 10px !important; }
-      .whr-col h3 { font-size: 0.65rem !important; margin-bottom: 4px !important; }
-      .whr-col ul { padding-left: 12px !important; gap: 3px !important; }
-      .whr-col li { font-size: 0.75pt !important; line-height: 1.2 !important; }
+      /* Clean media layouts */
+      .media-row { gap: 12px !important; margin-bottom: 16px !important; }
+      .photo { aspect-ratio: 16/9 !important; }
 
-      footer { padding: 8px 0 !important; }
+      /* High readability grid text */
+      .whr-grid { gap: 16px !important; }
+      .whr-col h3 { font-size: 0.75rem !important; color: var(--lilac-border) !important; margin-bottom: 6px !important; }
+      .whr-col ul { padding-left: 14px !important; gap: 4px !important; }
+      .whr-col li { font-size: 0.85pt !important; line-height: 1.35 !important; color: var(--plum) !important; }
+
+      footer { padding: 16px 0 0 0 !important; border-top: 1px solid var(--lilac-wash) !important; }
     }
   </style>
 </head>
