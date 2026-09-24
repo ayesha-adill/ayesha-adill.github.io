@@ -19,6 +19,7 @@
       --white:         #ffffff;
       --radius: 14px;
       --maxw: 1240px;
+      --colphoto-h: 380px;
     }
     *{ box-sizing:border-box; }
     html{ scroll-behavior:smooth; }
@@ -131,11 +132,13 @@
 
     /* ---- Photos: files named 1, 2, 3... in images/ ---- */
     .media-row{ display:grid; gap:16px; margin-bottom:30px; }
-    .media-row.cols-2{ grid-template-columns:repeat(2, 1fr); }
-    .media-row.cols-3{ grid-template-columns:repeat(3, 1fr); }
-    @media (max-width:700px){
-      .media-row.cols-2, .media-row.cols-3{ grid-template-columns:1fr; }
-    }
+
+    /* One large photo on top, two photos below it */
+    .media-row.hero{ grid-template-columns:repeat(2, 1fr); }
+    .media-row.hero .photo{ aspect-ratio:16/9; }
+    .media-row.hero .photo:first-child{ grid-column:1 / -1; }
+    @media (max-width:700px){ .media-row.hero{ grid-template-columns:1fr; } }
+
     .photo{
       margin:0; position:relative; aspect-ratio:4/3;
       border-radius:10px; overflow:hidden;
@@ -152,6 +155,26 @@
     .photo.missing{ border:none; }
     .photo.missing img{ display:none; }
     .photo.missing .ph{ display:flex; }
+
+    /* Photo that sits inside a What/How/Results column */
+    .colphoto{
+      margin:18px 0 0; position:relative; border-radius:10px; overflow:hidden;
+      background:var(--white); border:1px solid #e6e6ec;
+    }
+    .colphoto img{
+      width:100%; height:auto; max-height:var(--colphoto-h);
+      object-fit:contain; display:block; cursor:zoom-in;
+    }
+    .colphoto .ph{
+      display:none; min-height:180px;
+      flex-direction:column; align-items:center; justify-content:center; gap:4px;
+      border:1.5px dashed var(--lilac-soft); border-radius:10px;
+      color:var(--lilac-border); font-size:0.72rem; font-weight:600; text-align:center; padding:12px;
+    }
+    .colphoto .ph b{ font-size:1.4rem; line-height:1; font-weight:600; }
+    .colphoto.missing{ border:none; }
+    .colphoto.missing img{ display:none; }
+    .colphoto.missing .ph{ display:flex; }
 
     /* ---- Large poster image (full width, uncropped) ---- */
     .poster{ margin:0 0 16px; position:relative; border-radius:10px; overflow:hidden; background:var(--white); border:1px solid #e6e6ec; }
@@ -196,8 +219,13 @@
     @media print {
       @page { size: letter portrait; margin: 12mm 14mm; }
 
-      /* Tweak these two if a page overflows or looks too empty */
-      :root { --poster-h: 3.9in; --photo-h: 1.9in; }
+      /* Tweak these if a page overflows or looks too empty */
+      :root {
+        --poster-h: 4.6in;     /* Biofill poster */
+        --colphoto-h: 2.3in;   /* Biofill photos 2 and 3 under the text */
+        --hero-h: 3.6in;       /* large top photo (SharkSafe, Gait) */
+        --sub-h: 2.3in;        /* two photos underneath it */
+      }
 
       * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
       html { scroll-behavior: auto; }
@@ -239,14 +267,18 @@
       .nda-notice { font-size: 9.5pt; margin-bottom: 16px; }
 
       /* ---- Images (empty placeholders are hidden in the PDF) ---- */
-      .photo.missing, .poster.missing { display: none !important; }
-      .poster { margin: 0 0 10px; border: none; border-radius: 0; background: none; }
+      .photo.missing, .poster.missing, .colphoto.missing { display: none !important; }
+      .poster { margin: 0 0 12px; border: none; border-radius: 0; background: none; }
       .poster img { width: 100%; height: var(--poster-h); object-fit: contain; }
       .poster figcaption { font-size: 8.5pt; padding: 4px 0 0; }
+
+      .colphoto { margin-top: 12px; border-radius: 6px; }
+      .colphoto img { max-height: var(--colphoto-h); }
+
       .media-row { gap: 10px; margin-bottom: 14px; }
-      .media-row.cols-2 { grid-template-columns: repeat(2, 1fr) !important; }
-      .media-row.cols-3 { grid-template-columns: repeat(3, 1fr) !important; }
-      .photo { aspect-ratio: auto; height: var(--photo-h); border: 1px solid #e6e6ec; border-radius: 6px; }
+      .media-row.hero { grid-template-columns: repeat(2, 1fr) !important; }
+      .media-row.hero .photo { aspect-ratio: auto; height: var(--sub-h); border: 1px solid #e6e6ec; border-radius: 6px; }
+      .media-row.hero .photo:first-child { height: var(--hero-h); }
       .photo img { object-fit: contain; }
 
       /* ---- What / How / Results: readable size ---- */
@@ -271,7 +303,7 @@
       <span class="sep">·</span>
       <a class="link-item" href="https://linkedin.com/in/ayeshaadil" target="_blank" rel="noopener">
         <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 11v5M8 8v.01M12 16v-3.2c0-1 .8-1.8 1.8-1.8 1 0 1.7.8 1.7 1.8V16"/></svg>
-        LinkedIn
+        linkedin.com/in/ayeshaadil
       </a>
     </div>
     <div class="landing-btn-container">
@@ -285,7 +317,7 @@
 
   <main id="projects">
 
-    <!-- ===== 1. BIOFILL ===== -->
+    <!-- ===== 1. BIOFILL — poster (photo 4); photos 2 and 3 sit under What? and Results ===== -->
     <section class="proj-section" id="biofill">
       <div class="proj-title-row">
         <h2>Biofill — Automated Syringe-Filling Device <span class="proj-tools">— Inventor, Arduino (C++), FEA, Excel, 3D Printing</span></h2>
@@ -298,10 +330,6 @@
         <span class="ph"><b>4</b>Add project poster</span>
         <figcaption>Capstone project poster</figcaption>
       </figure>
-      <div class="media-row cols-2">
-        <figure class="photo"><img data-photo="2" alt="Biofill device photo 2"><span class="ph"><b>2</b>Add photo</span></figure>
-        <figure class="photo"><img data-photo="3" alt="Biofill device photo 3"><span class="ph"><b>3</b>Add photo</span></figure>
-      </div>
       <div class="whr-grid">
         <div class="whr-col">
           <h3>What?</h3>
@@ -310,6 +338,7 @@
             <li>Fills <strong>2–10 mL syringes</strong> with centrifuged gel inside a biosafety cabinet</li>
             <li>Replaces a manual process that trapped air bubbles and couldn't scale</li>
           </ul>
+          <figure class="colphoto"><img data-photo="2" alt="Biofill device photo 2"><span class="ph"><b>2</b>Add photo</span></figure>
         </div>
         <div class="whr-col">
           <h3>How?</h3>
@@ -329,6 +358,7 @@
             <li><strong>Adopted</strong> by the client, with a full engineering package delivered for scale-up</li>
             <li><strong>Co-inventor</strong> on a patent-pending design</li>
           </ul>
+          <figure class="colphoto"><img data-photo="3" alt="Biofill device photo 3"><span class="ph"><b>3</b>Add photo</span></figure>
         </div>
       </div>
     </section>
@@ -375,7 +405,7 @@
       </div>
     </section>
 
-    <!-- ===== 3. PHONE CASE — photos 10-12 ===== -->
+    <!-- ===== 3. PHONE CASE — photo 10 large on top, photos 11-12 below ===== -->
     <section class="proj-section" id="phone-case">
       <div class="proj-title-row">
         <h2>SharkSafe — Biomimetic Antibacterial Phone Case <span class="proj-tools">— SolidWorks</span></h2>
@@ -383,10 +413,10 @@
       <div class="proj-sub-row">
         <p class="proj-sub">MDL CADathon · 1st Place (Out of 20 Teams) · 2025 · Team of 4</p>
       </div>
-      <div class="media-row cols-3">
-        <figure class="photo"><img data-photo="10" alt="SharkSafe phone case render 10"><span class="ph"><b>10</b>Add photo</span></figure>
-        <figure class="photo"><img data-photo="11" alt="SharkSafe phone case render 11"><span class="ph"><b>11</b>Add photo</span></figure>
-        <figure class="photo"><img data-photo="12" alt="SharkSafe phone case render 12"><span class="ph"><b>12</b>Add photo</span></figure>
+      <div class="media-row hero">
+        <figure class="photo"><img data-photo="10" alt="SharkSafe phone case main image"><span class="ph"><b>10</b>Add large photo</span></figure>
+        <figure class="photo"><img data-photo="11" alt="SharkSafe phone case image 11"><span class="ph"><b>11</b>Add photo</span></figure>
+        <figure class="photo"><img data-photo="12" alt="SharkSafe phone case image 12"><span class="ph"><b>12</b>Add photo</span></figure>
       </div>
       <div class="whr-grid">
         <div class="whr-col">
@@ -414,7 +444,7 @@
       </div>
     </section>
 
-    <!-- ===== 4. GAIT ANALYSIS — photos 5-7 ===== -->
+    <!-- ===== 4. GAIT ANALYSIS — photo 5 large on top, photos 6-7 below ===== -->
     <section class="proj-section" id="gait-analysis">
       <div class="proj-title-row">
         <h2>Pediatric Cerebral Palsy Remote Gait Analysis Device <span class="proj-tools">— ESP32, BNO055, FSR, Python, Inventor</span></h2>
@@ -422,10 +452,10 @@
       <div class="proj-sub-row">
         <p class="proj-sub">IBEHS 3P03: Health Solutions Design Problems · 2024 · Team of 3</p>
       </div>
-      <div class="media-row cols-3">
-        <figure class="photo"><img data-photo="5" alt="Gait analysis device photo 5"><span class="ph"><b>5</b>Add photo</span></figure>
-        <figure class="photo"><img data-photo="6" alt="Gait analysis device photo 6"><span class="ph"><b>6</b>Add photo</span></figure>
-        <figure class="photo"><img data-photo="7" alt="Gait analysis device photo 7"><span class="ph"><b>7</b>Add photo</span></figure>
+      <div class="media-row hero">
+        <figure class="photo"><img data-photo="5" alt="Gait analysis device main image"><span class="ph"><b>5</b>Add large photo</span></figure>
+        <figure class="photo"><img data-photo="6" alt="Gait analysis device image 6"><span class="ph"><b>6</b>Add photo</span></figure>
+        <figure class="photo"><img data-photo="7" alt="Gait analysis device image 7"><span class="ph"><b>7</b>Add photo</span></figure>
       </div>
       <div class="whr-grid">
         <div class="whr-col">
