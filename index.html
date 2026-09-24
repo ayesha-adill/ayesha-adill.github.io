@@ -1,442 +1,372 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ayesha Adil — Mechanical &amp; Biomedical Design Engineer</title>
-  <meta name="description" content="Portfolio of Ayesha Adil — Mechanical and Biomedical Design Engineer.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --lilac-bg:      #f7f3fb;
-      --lilac-wash:    #eee5f7;
-      --lilac-border:  #8b6bb8;
-      --lilac-soft:    #cdbbe4;
-      --plum:          #362a4a;
-      --plum-soft:     #6b5c85;
-      --white:         #ffffff;
-      --radius: 14px;
-      --maxw: 1240px;
-    }
-    *{ box-sizing:border-box; }
-    html{ scroll-behavior:smooth; }
-    body{
-      margin:0;
-      background:var(--lilac-bg);
-      color:var(--plum);
-      font-family:'Inter', sans-serif;
-      line-height:1.55;
-      -webkit-font-smoothing:antialiased;
-    }
-    @media (prefers-reduced-motion: reduce){
-      html{ scroll-behavior:auto; }
-      *{ animation-duration:0.01ms !important; transition-duration:0.01ms !important; }
-    }
-    a{ color:inherit; }
+/* ================= LANDING ================= */
+.landing{
+  height:100vh; min-height:550px;
+  display:flex; flex-direction:column; justify-content:center; align-items:center;
+  text-align:center; padding:0 24px;
+  background:linear-gradient(180deg, var(--white) 0%, var(--lilac-bg) 100%);
+  position:relative;
+}
+.landing h1{
+  font-family:'Fraunces', serif; font-weight:600;
+  font-size:clamp(2.5rem, 7vw, 4.2rem);
+  margin:0 0 12px 0; color:var(--plum); line-height:1.1;
+}
+.landing p{
+  font-size:clamp(1rem, 2.5vw, 1.25rem);
+  color:var(--plum-soft); margin:0 0 12px 0; font-weight:500;
+}
+.landing-links{
+  display:flex; align-items:center; justify-content:center;
+  gap:16px; flex-wrap:wrap; margin-bottom:16px;
+}
+.landing-links a.link-item{
+  font-size:0.9rem; font-weight:500; color:var(--plum-soft);
+  text-decoration:none; display:inline-flex; align-items:center; gap:8px;
+  transition:color .15s ease;
+}
+.landing-links a.link-item:hover{ color:var(--plum); }
+.landing-links .sep{ color:var(--lilac-soft); font-size:0.9rem; }
+.landing-links .icon{ width:16px; height:16px; flex-shrink:0; stroke:var(--lilac-border); fill:none; stroke-width:1.8; }
+.landing-btn-container{ display:flex; justify-content:center; margin-bottom:20px; }
+.btn{
+  font-size:0.88rem; font-weight:600; letter-spacing:0.01em;
+  text-decoration:none; padding:10px 22px; border-radius:8px;
+  transition:transform .18s ease, box-shadow .18s ease, background .18s ease;
+  display:inline-flex; align-items:center; gap:8px;
+}
+.btn-primary{ background:var(--lilac-border); color:#fff; }
+.btn-primary:hover{ background:#7a5aa6; transform:translateY(-2px); box-shadow:0 8px 20px rgba(139,107,184,0.3); }
+.scroll-prompt{
+  position:absolute; bottom:32px;
+  display:flex; flex-direction:column; align-items:center; gap:8px;
+  color:var(--lilac-border); text-decoration:none;
+  font-size:0.75rem; font-weight:600; letter-spacing:0.05em; text-transform:uppercase;
+  transition:transform 0.2s ease;
+}
+.scroll-prompt:hover{ transform:translateY(3px); }
+.scroll-prompt svg{ width:20px; height:20px; stroke:var(--lilac-border); fill:none; stroke-width:2; }
 
-    /* ================= LANDING ================= */
-    .landing{
-      height:100vh; min-height:550px;
-      display:flex; flex-direction:column; justify-content:center; align-items:center;
-      text-align:center; padding:0 24px;
-      background:linear-gradient(180deg, var(--white) 0%, var(--lilac-bg) 100%);
-      position:relative;
-    }
-    .landing h1{
-      font-family:'Fraunces', serif; font-weight:600;
-      font-size:clamp(2.5rem, 7vw, 4.2rem);
-      margin:0 0 12px 0; color:var(--plum); line-height:1.1;
-    }
-    .landing p{
-      font-size:clamp(1rem, 2.5vw, 1.25rem);
-      color:var(--plum-soft); margin:0 0 12px 0; font-weight:500;
-    }
-    .landing-links{
-      display:flex; align-items:center; justify-content:center;
-      gap:16px; flex-wrap:wrap; margin-bottom:16px;
-    }
-    .landing-links a.link-item{
-      font-size:0.9rem; font-weight:500; color:var(--plum-soft);
-      text-decoration:none; display:inline-flex; align-items:center; gap:8px;
-      transition:color .15s ease;
-    }
-    .landing-links a.link-item:hover{ color:var(--plum); }
-    .landing-links .sep{ color:var(--lilac-soft); font-size:0.9rem; }
-    .landing-links .icon{ width:16px; height:16px; flex-shrink:0; stroke:var(--lilac-border); fill:none; stroke-width:1.8; }
-    .landing-btn-container{ display:flex; justify-content:center; margin-bottom:20px; }
-    .btn{
-      font-size:0.88rem; font-weight:600; letter-spacing:0.01em;
-      text-decoration:none; padding:10px 22px; border-radius:8px;
-      transition:transform .18s ease, box-shadow .18s ease, background .18s ease;
-      display:inline-flex; align-items:center; gap:8px;
-    }
-    .btn-primary{ background:var(--lilac-border); color:#fff; }
-    .btn-primary:hover{ background:#7a5aa6; transform:translateY(-2px); box-shadow:0 8px 20px rgba(139,107,184,0.3); }
-    .scroll-prompt{
-      position:absolute; bottom:32px;
-      display:flex; flex-direction:column; align-items:center; gap:8px;
-      color:var(--lilac-border); text-decoration:none;
-      font-size:0.75rem; font-weight:600; letter-spacing:0.05em; text-transform:uppercase;
-      transition:transform 0.2s ease;
-    }
-    .scroll-prompt:hover{ transform:translateY(3px); }
-    .scroll-prompt svg{ width:20px; height:20px; stroke:var(--lilac-border); fill:none; stroke-width:2; }
+/* ================= PROJECTS ================= */
+main{ padding:60px 24px 100px; }
+.proj-section{
+  max-width:var(--maxw); margin:0 auto 56px;
+  background:var(--white);
+  border:1.5px solid var(--lilac-soft);
+  border-radius:var(--radius);
+  padding:40px 40px 44px;
+}
+@media (max-width:640px){ .proj-section{ padding:28px 22px 32px; } }
+.proj-title-row{
+  display:flex; align-items:baseline; justify-content:space-between;
+  gap:12px; margin-bottom:6px; flex-wrap:wrap;
+}
+.proj-title-row h2{
+  font-family:'Fraunces', serif; font-weight:600;
+  font-size:clamp(1.3rem, 3vw, 1.65rem); margin:0; color:var(--plum);
+}
+.proj-tools{ font-family:'Inter', sans-serif; font-weight:400; font-size:0.95rem; color:var(--plum-soft); }
+.proj-sub-row{ display:flex; align-items:center; gap:10px; margin:0 0 26px 0; flex-wrap:wrap; }
+.proj-sub{
+  font-size:0.8rem; color:var(--lilac-border); font-weight:600;
+  letter-spacing:0.03em; text-transform:uppercase; margin:0;
+}
+.nda-tag{
+  display:inline-flex; align-items:center; gap:6px;
+  background:#f1ecf7; color:var(--plum-soft);
+  border:1px solid var(--lilac-soft);
+  font-size:0.68rem; font-weight:700; letter-spacing:0.04em; text-transform:uppercase;
+  padding:3px 10px; border-radius:20px;
+}
+.nda-tag::before{
+  content:""; display:inline-block; width:6px; height:6px;
+  border-radius:50%; background:var(--lilac-border);
+}
+.nda-notice{
+  background:#f1ecf7;
+  border:1.5px solid var(--lilac-soft);
+  border-left:4px solid var(--lilac-border);
+  border-radius:10px;
+  padding:14px 18px; margin:0 0 26px 0;
+  font-size:0.85rem; color:var(--plum-soft);
+}
+.nda-notice strong{ color:var(--plum); }
 
-    /* ================= PROJECTS ================= */
-    main{ padding:60px 24px 100px; }
-    .proj-section{
-      max-width:var(--maxw); margin:0 auto 56px;
-      background:var(--white);
-      border:1.5px solid var(--lilac-soft);
-      border-radius:var(--radius);
-      padding:40px 40px 44px;
-    }
-    @media (max-width:640px){ .proj-section{ padding:28px 22px 32px; } }
-    .proj-title-row{
-      display:flex; align-items:baseline; justify-content:space-between;
-      gap:12px; margin-bottom:6px; flex-wrap:wrap;
-    }
-    .proj-title-row h2{
-      font-family:'Fraunces', serif; font-weight:600;
-      font-size:clamp(1.3rem, 3vw, 1.65rem); margin:0; color:var(--plum);
-    }
-    .proj-tools{ font-family:'Inter', sans-serif; font-weight:400; font-size:0.95rem; color:var(--plum-soft); }
-    .proj-sub-row{ display:flex; align-items:center; gap:10px; margin:0 0 26px 0; flex-wrap:wrap; }
-    .proj-sub{
-      font-size:0.8rem; color:var(--lilac-border); font-weight:600;
-      letter-spacing:0.03em; text-transform:uppercase; margin:0;
-    }
-    .nda-tag{
-      display:inline-flex; align-items:center; gap:6px;
-      background:#f1ecf7; color:var(--plum-soft);
-      border:1px solid var(--lilac-soft);
-      font-size:0.68rem; font-weight:700; letter-spacing:0.04em; text-transform:uppercase;
-      padding:3px 10px; border-radius:20px;
-    }
-    .nda-tag::before{
-      content:""; display:inline-block; width:6px; height:6px;
-      border-radius:50%; background:var(--lilac-border);
-    }
-    .nda-notice{
-      background:#f1ecf7;
-      border:1.5px solid var(--lilac-soft);
-      border-left:4px solid var(--lilac-border);
-      border-radius:10px;
-      padding:14px 18px; margin:0 0 26px 0;
-      font-size:0.85rem; color:var(--plum-soft);
-    }
-    .nda-notice strong{ color:var(--plum); }
+/* ---- Photos ---- */
+.media-row{ display:grid; gap:16px; margin-bottom:30px; }
+.media-row.cols-2{ grid-template-columns:repeat(2, 1fr); }
+.media-row.cols-3{ grid-template-columns:repeat(3, 1fr); }
+@media (max-width:700px){
+  .media-row.cols-2, .media-row.cols-3{ grid-template-columns:1fr; }
+}
+.photo{
+  margin:0; position:relative; aspect-ratio:4/3;
+  border-radius:10px; overflow:hidden;
+  background:var(--white); border:1px solid #e6e6ec;
+}
+.photo img{ width:100%; height:100%; object-fit:contain; display:block; cursor:zoom-in; }
+.photo .ph{
+  display:none; position:absolute; inset:0;
+  flex-direction:column; align-items:center; justify-content:center; gap:4px;
+  border:1.5px dashed var(--lilac-soft); border-radius:10px;
+  color:var(--lilac-border); font-size:0.72rem; font-weight:600; text-align:center; padding:12px;
+}
+.photo .ph b{ font-size:1.4rem; line-height:1; font-weight:600; }
+.photo.missing{ border:none; }
+.photo.missing img{ display:none; }
+.photo.missing .ph{ display:flex; }
 
-    /* ---- Photos: files named 1, 2, 3... in images/ ---- */
-    .media-row{ display:grid; gap:16px; margin-bottom:30px; }
-    .media-row.cols-2{ grid-template-columns:repeat(2, 1fr); }
-    .media-row.cols-3{ grid-template-columns:repeat(3, 1fr); }
-    @media (max-width:700px){
-      .media-row.cols-2, .media-row.cols-3{ grid-template-columns:1fr; }
-    }
-    .photo{
-      margin:0; position:relative; aspect-ratio:4/3;
-      border-radius:10px; overflow:hidden;
-      background:var(--white); border:1px solid #e6e6ec;
-    }
-    .photo img{ width:100%; height:100%; object-fit:contain; display:block; cursor:zoom-in; }
-    .photo .ph{
-      display:none; position:absolute; inset:0;
-      flex-direction:column; align-items:center; justify-content:center; gap:4px;
-      border:1.5px dashed var(--lilac-soft); border-radius:10px;
-      color:var(--lilac-border); font-size:0.72rem; font-weight:600; text-align:center; padding:12px;
-    }
-    .photo .ph b{ font-size:1.4rem; line-height:1; font-weight:600; }
-    .photo.missing{ border:none; }
-    .photo.missing img{ display:none; }
-    .photo.missing .ph{ display:flex; }
+/* ---- Large poster image ---- */
+.poster{ margin:0 0 16px; position:relative; border-radius:10px; overflow:hidden; background:var(--white); border:1px solid #e6e6ec; }
+.poster img{ width:100%; height:auto; display:block; cursor:zoom-in; }
+.poster figcaption{ font-size:0.78rem; color:var(--plum-soft); text-align:center; padding:10px 12px 12px; background:var(--white); }
+.poster .ph{
+  display:none; min-height:320px;
+  flex-direction:column; align-items:center; justify-content:center; gap:4px;
+  border:1.5px dashed var(--lilac-soft); border-radius:10px;
+  color:var(--lilac-border); font-size:0.78rem; font-weight:600; text-align:center; padding:12px;
+}
+.poster .ph b{ font-size:1.4rem; line-height:1; font-weight:600; }
+.poster.missing{ border:none; }
+.poster.missing img, .poster.missing figcaption{ display:none; }
+.poster.missing .ph{ display:flex; }
 
-    /* ---- Large poster image (full width, uncropped) ---- */
-    .poster{ margin:0 0 16px; position:relative; border-radius:10px; overflow:hidden; background:var(--white); border:1px solid #e6e6ec; }
-    .poster img{ width:100%; height:auto; display:block; cursor:zoom-in; }
-    .poster figcaption{ font-size:0.78rem; color:var(--plum-soft); text-align:center; padding:10px 12px 12px; background:var(--white); }
-    .poster .ph{
-      display:none; min-height:320px;
-      flex-direction:column; align-items:center; justify-content:center; gap:4px;
-      border:1.5px dashed var(--lilac-soft); border-radius:10px;
-      color:var(--lilac-border); font-size:0.78rem; font-weight:600; text-align:center; padding:12px;
-    }
-    .poster .ph b{ font-size:1.4rem; line-height:1; font-weight:600; }
-    .poster.missing{ border:none; }
-    .poster.missing img, .poster.missing figcaption{ display:none; }
-    .poster.missing .ph{ display:flex; }
+/* ---- Click-to-enlarge ---- */
+.lightbox{
+  display:none; position:fixed; inset:0; z-index:1000;
+  background:rgba(0,0,0,0.88); align-items:center; justify-content:center;
+  padding:24px; cursor:zoom-out;
+}
+.lightbox.open{ display:flex; }
+.lightbox img{ max-width:100%; max-height:100%; object-fit:contain; }
 
-    /* ---- Click-to-enlarge ---- */
-    .lightbox{
-      display:none; position:fixed; inset:0; z-index:1000;
-      background:rgba(0,0,0,0.88); align-items:center; justify-content:center;
-      padding:24px; cursor:zoom-out;
-    }
-    .lightbox.open{ display:flex; }
-    .lightbox img{ max-width:100%; max-height:100%; object-fit:contain; }
+/* ---- What / How / Results ---- */
+.whr-grid{ display:grid; grid-template-columns:repeat(3, 1fr); gap:28px; }
+@media (max-width:700px){ .whr-grid{ grid-template-columns:1fr; gap:22px; } }
+.whr-col h3{
+  font-size:0.78rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em;
+  color:var(--lilac-border); margin:0 0 12px;
+}
+.whr-col ul{ margin:0; padding-left:18px; display:flex; flex-direction:column; gap:8px; }
+.whr-col li{ font-size:0.87rem; color:var(--plum); }
+.whr-col li::marker{ color:var(--lilac-border); }
 
-    /* ---- What / How / Results ---- */
-    .whr-grid{ display:grid; grid-template-columns:repeat(3, 1fr); gap:28px; }
-    @media (max-width:700px){ .whr-grid{ grid-template-columns:1fr; gap:22px; } }
-    .whr-col h3{
-      font-size:0.78rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em;
-      color:var(--lilac-border); margin:0 0 12px;
-    }
-    .whr-col ul{ margin:0; padding-left:18px; display:flex; flex-direction:column; gap:8px; }
-    .whr-col li{ font-size:0.87rem; color:var(--plum); }
-    .whr-col li::marker{ color:var(--lilac-border); }
+footer{ text-align:center; padding:0 24px 60px; }
+footer p{ font-size:0.78rem; color:var(--plum-soft); }
+a:focus-visible, .btn:focus-visible{ outline:2px solid var(--lilac-border); outline-offset:3px; }
 
-    footer{ text-align:center; padding:0 24px 60px; }
-    footer p{ font-size:0.78rem; color:var(--plum-soft); }
-    a:focus-visible, .btn:focus-visible{ outline:2px solid var(--lilac-border); outline-offset:3px; }
+/* ================= PRINT / PDF EXPORT ENGINE ================= */
+@media print {
+  @page { size: A4 portrait; margin: 0; }
+  body {
+    background: #ffffff !important;
+    color: #362a4a !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .landing, .scroll-prompt, .lightbox, .landing-btn-container, footer {
+    display: none !important;
+  }
+  main {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  .proj-section {
+    height: 297mm !important;
+    max-height: 297mm !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    margin: 0 !important;
+    padding: 16mm 18mm !important;
+    border: none !important;
+    border-radius: 0 !important;
+    background: #ffffff !important;
+    page-break-after: always !important;
+    break-after: page !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+  }
+  .proj-section:last-child {
+    page-break-after: auto !important;
+    break-after: auto !important;
+  }
+  .poster { margin-bottom: 12px !important; }
+  .poster img { max-height: 180mm !important; object-fit: contain !important; }
+  .media-row { margin-bottom: 16px !important; }
+  .photo { aspect-ratio: 16/9 !important; }
+  .whr-grid { gap: 16px !important; }
+  .whr-col li { font-size: 8.5pt !important; line-height: 1.4 !important; }
+  .whr-col h3 { font-size: 8pt !important; margin-bottom: 6px !important; }
+}
 
-    /* ================= PRINT / PDF STYLES ================= */
-    @media print {
-      body { background: #ffffff !important; color: #000000 !important; }
-      .landing { height: auto !important; min-height: 0 !important; padding: 40px 0 !important; page-break-after: always; break-after: page; }
-      .scroll-prompt, .lightbox, .landing-btn-container { display: none !important; }
-      main { padding: 0 !important; }
-      .proj-section {
-        border: 1px solid #ccc !important;
-        box-shadow: none !important;
-        padding: 24px !important;
-        margin-bottom: 30px !important;
-        page-break-inside: avoid !important;
-        break-inside: avoid !important;
-      }
-      .photo, .poster { page-break-inside: avoid !important; break-inside: avoid !important; }
-      footer { page-break-before: auto !important; padding: 20px 0 !important; }
-    }
-  </style>
-</head>
-<body>
 
-  <!-- ===== LANDING ===== -->
-  <section class="landing">
-    <h1>Ayesha Adil</h1>
-    <p>Mechanical &amp; Biomedical Engineering Graduate — McMaster University</p>
-    <div class="landing-links">
-      <a class="link-item" href="mailto:ayesha.adil1644@gmail.com">
-        <svg class="icon" viewBox="0 0 24 24"><path d="M3 6h18v12H3z"/><path d="m3 7 9 6 9-6"/></svg>
-        ayesha.adil1644@gmail.com
-      </a>
-      <span class="sep">·</span>
-      <a class="link-item" href="https://linkedin.com/in/ayeshaadil" target="_blank" rel="noopener">
-        <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 11v5M8 8v.01M12 16v-3.2c0-1 .8-1.8 1.8-1.8 1 0 1.7.8 1.7 1.8V16"/></svg>
-        LinkedIn
-      </a>
+<!-- ===== 1. BIOFILL ===== -->
+<section class="proj-section" id="biofill">
+  <div class="proj-title-row">
+    <h2>Biofill — Automated Syringe-Filling Device <span class="proj-tools">— Inventor, Arduino (C++), FEA, Excel, 3D Printing</span></h2>
+  </div>
+  <div class="proj-sub-row" style="margin-bottom:16px;">
+    <p class="proj-sub">Capstone Project · 2026 · Team of 4 · Patent Pending</p>
+  </div>
+  <figure class="poster">
+    <img data-photo="4" alt="Biofill capstone project poster">
+    <span class="ph"><b>4</b>Add project poster</span>
+    <figcaption>Capstone project poster</figcaption>
+  </figure>
+  <div class="media-row cols-2">
+    <figure class="photo"><img data-photo="2" alt="Biofill device photo 2"><span class="ph"><b>2</b>Add photo</span></figure>
+    <figure class="photo"><img data-photo="3" alt="Biofill device photo 3"><span class="ph"><b>3</b>Add photo</span></figure>
+  </div>
+  <div class="whr-grid">
+    <div class="whr-col">
+      <h3>What?</h3>
+      <ul>
+        <li>Motor-actuated, <strong>table-lift syringe-filling machine</strong> for <strong>Tessella Biosciences</strong></li>
+        <li>Fills <strong>2–10 mL syringes</strong> with centrifuged gel inside a biosafety cabinet</li>
+        <li>Replaces a manual process that trapped air bubbles and couldn't scale</li>
+      </ul>
     </div>
-    <div class="landing-btn-container">
-      <a class="btn btn-primary" href="resume.pdf" target="_blank" rel="noopener">View Resume</a>
+    <div class="whr-col">
+      <h3>How?</h3>
+      <ul>
+        <li><strong>Mechanical:</strong> table-lift drive, twist-and-lock piston, sliding tray, PTFE bearing pads</li>
+        <li><strong>Enclosure:</strong> 3D-printed and cleanable for gloved use, with a BOM under $1,500</li>
+        <li><strong>Electronics and code:</strong> Arduino C++ for 2 stepper motors, with homing, adjustable volume, and auto piston retraction</li>
+        <li><strong>Validation:</strong> torque test rig; accuracy verified by weighing syringes over repeated trials</li>
+        <li><strong>Failure analysis:</strong> FEA and testing of piston detachment and lock shear</li>
+      </ul>
     </div>
-    <a href="#projects" class="scroll-prompt">
-      Scroll for projects
-      <svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5"/></svg>
-    </a>
-  </section>
+    <div class="whr-col">
+      <h3>Results</h3>
+      <ul>
+        <li><strong>10× faster</strong> (about 1 min per syringe), with lower contamination risk</li>
+        <li><strong>±0.05 mL</strong> accuracy, ≤1 mL dead volume</li>
+        <li><strong>Adopted</strong> by the client, with a full engineering package delivered for scale-up</li>
+        <li><strong>Co-inventor</strong> on a patent-pending design</li>
+      </ul>
+    </div>
+  </div>
+</section>
 
-  <main id="projects">
+<!-- ===== 2. IUD DEVICE (NDA) ===== -->
+<section class="proj-section" id="refem">
+  <div class="proj-title-row">
+    <h2>Dual Gel-Suction IUD Insertion Device <span class="proj-tools">— Onshape, Fusion 360, 3D Printing</span></h2>
+  </div>
+  <div class="proj-sub-row">
+    <p class="proj-sub">ReFem Tech · FemTech Startup</p>
+    <span class="nda-tag">Under NDA</span>
+  </div>
+  <div class="nda-notice">
+    <strong>This project is under a non-disclosure agreement (NDA).</strong>
+  </div>
+  <div class="whr-grid">
+    <div class="whr-col">
+      <h3>What?</h3>
+      <ul>
+        <li>Electromechanical <strong>IUD insertion device</strong> that consolidates <strong>3 clinical instruments into 1 system</strong></li>
+        <li>Two-part design: a suction section and a gel-dispensing section</li>
+        <li>Built to improve patient comfort and streamline the insertion procedure</li>
+      </ul>
+    </div>
+    <div class="whr-col">
+      <h3>How?</h3>
+      <ul>
+        <li><strong>Design:</strong> sized both sections around gel volume and standard dosing requirements</li>
+        <li><strong>Prototyping:</strong> 5 3D-printed iterations, fixing tolerance, sizing, and ergonomic failures; tracked in Excel test plans</li>
+        <li><strong>Clinician input:</strong> interviewed 3 clinicians and turned their feedback into design requirements</li>
+        <li><strong>Manufacturability:</strong> GD&amp;T drawings, and design-for-manufacturing reviews with manufacturers</li>
+        <li><strong>Risk and compliance:</strong> FMEA risk analysis and a design spec sheet against ISO 10993 and ISO 14971</li>
+      </ul>
+    </div>
+    <div class="whr-col">
+      <h3>Results</h3>
+      <ul>
+        <li><strong>3 instruments → 1</strong> unified system</li>
+        <li>Co-authored the technical specifications for the <strong>FDA 510(k)</strong> pathway</li>
+        <li>Helped win <strong>$10,000+</strong> in startup pitch awards through cost tracking, grant search, and market analysis</li>
+      </ul>
+    </div>
+  </div>
+</section>
 
-    <!-- ===== 1. BIOFILL — title, caption, poster (photo 4), photos 2-3, then What/How/Results ===== -->
-    <section class="proj-section" id="biofill">
-      <div class="proj-title-row">
-        <h2>Biofill — Automated Syringe-Filling Device <span class="proj-tools">— Inventor, Arduino (C++), FEA, Excel, 3D Printing</span></h2>
-      </div>
-      <div class="proj-sub-row" style="margin-bottom:16px;">
-        <p class="proj-sub">Capstone Project · 2026 · Team of 4 · Patent Pending</p>
-      </div>
-      <figure class="poster">
-        <img data-photo="4" alt="Biofill capstone project poster">
-        <span class="ph"><b>4</b>Add project poster</span>
-        <figcaption>Capstone project poster</figcaption>
-      </figure>
-      <div class="media-row cols-2">
-        <figure class="photo"><img data-photo="2" alt="Biofill device photo 2"><span class="ph"><b>2</b>Add photo</span></figure>
-        <figure class="photo"><img data-photo="3" alt="Biofill device photo 3"><span class="ph"><b>3</b>Add photo</span></figure>
-      </div>
-      <div class="whr-grid">
-        <div class="whr-col">
-          <h3>What?</h3>
-          <ul>
-            <li>Motor-actuated <strong>table-lift syringe-filling machine</strong> for Tessella Biosciences</li>
-            <li>Fills <strong>2–10 mL syringes</strong> with hydrogel inside a biosafety cabinet</li>
-            <li>Eliminates manual filling risks, air entrapment, and volume variance</li>
-          </ul>
-        </div>
-        <div class="whr-col">
-          <h3>How?</h3>
-          <ul>
-            <li><strong>Mechanical:</strong> Table-lift drive, twist-and-lock piston, sliding tray, PTFE bearings</li>
-            <li><strong>Electronics &amp; Code:</strong> Dual stepper motors controlled via Arduino (C++) with auto-homing and retraction</li>
-            <li><strong>Validation:</strong> FEA stress modeling, torque testing, and load-cell mass verification</li>
-          </ul>
-        </div>
-        <div class="whr-col">
-          <h3>Results</h3>
-          <ul>
-            <li><strong>10× faster process</strong> (~1 min/syringe) with reduced contamination risk</li>
-            <li>Achieved <strong>±0.05 mL accuracy</strong> and ≤1 mL dead volume</li>
-            <li>Adopted by client; co-inventor on patent-pending design package</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+<!-- ===== 3. GAIT ANALYSIS ===== -->
+<section class="proj-section" id="gait-analysis">
+  <div class="proj-title-row">
+    <h2>Pediatric Cerebral Palsy Remote Gait Analysis Device <span class="proj-tools">— ESP32, BNO055, FSR, Python, Inventor</span></h2>
+  </div>
+  <div class="proj-sub-row">
+    <p class="proj-sub">IBEHS 3P03: Health Solutions Design Problems · 2024 · Team of 3</p>
+  </div>
+  <div class="media-row cols-3">
+    <figure class="photo"><img data-photo="5" alt="Gait analysis device photo 5"><span class="ph"><b>5</b>Add photo</span></figure>
+    <figure class="photo"><img data-photo="6" alt="Gait analysis device photo 6"><span class="ph"><b>6</b>Add photo</span></figure>
+    <figure class="photo"><img data-photo="7" alt="Gait analysis device photo 7"><span class="ph"><b>7</b>Add photo</span></figure>
+  </div>
+  <div class="whr-grid">
+    <div class="whr-col">
+      <h3>What?</h3>
+      <ul>
+        <li>Wearable proof-of-concept system to monitor <strong>equinus gait (toe-walking)</strong> in children with cerebral palsy</li>
+        <li>Allows clinicians to remotely track ankle joint mobility between clinic visits</li>
+      </ul>
+    </div>
+    <div class="whr-col">
+      <h3>How?</h3>
+      <ul>
+        <li><strong>Sensing:</strong> dual BNO055 IMUs for real-time tibia-to-foot relative angle tracking</li>
+        <li><strong>Force measurement:</strong> force-sensitive resistors (FSRs) at heel and forefoot to detect gait phases</li>
+        <li><strong>Hardware & Software:</strong> custom 3D-printed enclosure (ESP32) streaming telemetry to Python (Matplotlib)</li>
+      </ul>
+    </div>
+    <div class="whr-col">
+      <h3>Results</h3>
+      <ul>
+        <li>Captured continuous ankle kinematic and loading data during <strong>60-second trial walks</strong></li>
+        <li>Established quantitative metric comparing peak gait angles against baseline biomechanics</li>
+        <li>Delivered fully functional prototype with a low <strong>$162 total BOM cost</strong></li>
+      </ul>
+    </div>
+  </div>
+</section>
 
-    <!-- ===== 2. IUD DEVICE (NDA) — no photos ===== -->
-    <section class="proj-section" id="refem">
-      <div class="proj-title-row">
-        <h2>Dual Gel-Suction IUD Insertion Device <span class="proj-tools">— Onshape, Fusion 360, 3D Printing</span></h2>
-      </div>
-      <div class="proj-sub-row">
-        <p class="proj-sub">ReFem Tech · FemTech Startup</p>
-        <span class="nda-tag">Under NDA</span>
-      </div>
-      <div class="nda-notice">
-        <strong>This project is under a non-disclosure agreement (NDA).</strong>
-      </div>
-      <div class="whr-grid">
-        <div class="whr-col">
-          <h3>What?</h3>
-          <ul>
-            <li>Electromechanical <strong>IUD insertion device</strong> consolidating <strong>3 clinical tools into 1 system</strong></li>
-            <li>Integrated suction stabilization and localized gel-dispensing mechanisms</li>
-            <li>Designed to reduce patient discomfort and standardize insertion workflow</li>
-          </ul>
-        </div>
-        <div class="whr-col">
-          <h3>How?</h3>
-          <ul>
-            <li><strong>Prototyping:</strong> Built 5 3D-printed iterations based on clinical feedback to refine ergonomics</li>
-            <li><strong>Design &amp; Quality:</strong> Applied GD&amp;T, DFMA, FMEA risk analysis, and ISO 10993/14971 standards</li>
-            <li><strong>Regulatory:</strong> Co-authored technical documentation for FDA 510(k) pathway</li>
-          </ul>
-        </div>
-        <div class="whr-col">
-          <h3>Results</h3>
-          <ul>
-            <li>Successfully combined <strong>3 separate procedural steps</strong> into 1 device</li>
-            <li>Supported winning <strong>$10,000+</strong> in pitch awards via cost and market analysis</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== 3. GAIT ANALYSIS — photos 5-7 ===== -->
-    <section class="proj-section" id="gait-analysis">
-      <div class="proj-title-row">
-        <h2>Pediatric Cerebral Palsy Remote Gait Analysis Device <span class="proj-tools">— ESP32, BNO055, FSR, Python, Inventor</span></h2>
-      </div>
-      <div class="proj-sub-row">
-        <p class="proj-sub">IBEHS 3P03: Health Solutions Design Problems · 2024 · Team of 3</p>
-      </div>
-      <div class="media-row cols-3">
-        <figure class="photo"><img data-photo="5" alt="Gait analysis device photo 5"><span class="ph"><b>5</b>Add photo</span></figure>
-        <figure class="photo"><img data-photo="6" alt="Gait analysis device photo 6"><span class="ph"><b>6</b>Add photo</span></figure>
-        <figure class="photo"><img data-photo="7" alt="Gait analysis device photo 7"><span class="ph"><b>7</b>Add photo</span></figure>
-      </div>
-      <div class="whr-grid">
-        <div class="whr-col">
-          <h3>What?</h3>
-          <ul>
-            <li>Wearable monitor to track <strong>equinus gait (toe-walking)</strong> in pediatric cerebral palsy patients</li>
-            <li>Enables clinicians to evaluate gait progression remotely between clinic visits</li>
-          </ul>
-        </div>
-        <div class="whr-col">
-          <h3>How?</h3>
-          <ul>
-            <li><strong>Sensing:</strong> Dual BNO055 IMUs calculate relative tibia-to-foot angle; FSR sensors track heel/toe load distribution</li>
-            <li><strong>Hardware &amp; Software:</strong> Custom 3D-printed enclosure; real-time telemetry piped to Python (Matplotlib)</li>
-          </ul>
-        </div>
-        <div class="whr-col">
-          <h3>Results</h3>
-          <ul>
-            <li>Validated dynamic ankle angle and loading curves over 60-second trials</li>
-            <li>Delivered low-cost prototype at <strong>~$162 total BOM cost</strong></li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== 4. PHONE CASE — photos 10-12 ===== -->
-    <section class="proj-section" id="phone-case">
-      <div class="proj-title-row">
-        <h2>SharkSafe — Biomimetic Antibacterial Phone Case <span class="proj-tools">— SolidWorks</span></h2>
-      </div>
-      <div class="proj-sub-row">
-        <p class="proj-sub">MDL CADathon · 1st Place · 2025 · Team of 4</p>
-      </div>
-      <div class="media-row cols-3">
-        <figure class="photo"><img data-photo="10" alt="SharkSafe phone case render 10"><span class="ph"><b>10</b>Add photo</span></figure>
-        <figure class="photo"><img data-photo="11" alt="SharkSafe phone case render 11"><span class="ph"><b>11</b>Add photo</span></figure>
-        <figure class="photo"><img data-photo="12" alt="SharkSafe phone case render 12"><span class="ph"><b>12</b>Add photo</span></figure>
-      </div>
-      <div class="whr-grid">
-        <div class="whr-col">
-          <h3>What?</h3>
-          <ul>
-            <li>Phone case featuring a micro-patterned, shark-skin surface that prevents biofilm build-up without chemicals</li>
-            <li>Provides continuous, non-toxic antibacterial surface protection for everyday devices</li>
-          </ul>
-        </div>
-        <div class="whr-col">
-          <h3>How?</h3>
-          <ul>
-            <li><strong>CAD Modeling:</strong> Designed 2 µm wide, 0.4 µm high micro-riblets in SolidWorks based on fluid dynamics literature</li>
-            <li><strong>Materials &amp; DFM:</strong> Selected flax-reinforced Ecoflex bioplastic molded via laser-ablated tooling</li>
-          </ul>
-        </div>
-        <div class="whr-col">
-          <h3>Results</h3>
-          <ul>
-            <li>Awarded <strong>1st Place</strong> at the MDL CADathon</li>
-            <li>Developed commercialization model ($5 unit cost, $25 MSRP) backed by a $50k rollout plan</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <footer>
-    <p>© 2026 Ayesha Adil — ayesha.adil1644@gmail.com</p>
-  </footer>
-
-  <!-- Click-to-enlarge overlay -->
-  <div class="lightbox" id="lightbox" aria-hidden="true"><img alt=""></div>
-
-  <script>
-    (function(){
-      /* Photo loader: looks for images/N.png, .jpg, .jpeg, .webp */
-      var exts = ['png','jpg','jpeg','webp'];
-      document.querySelectorAll('img[data-photo]').forEach(function(img){
-        var n = img.getAttribute('data-photo'), i = 0;
-        function next(){
-          if (i >= exts.length){ img.parentElement.classList.add('missing'); return; }
-          img.src = 'images/' + n + '.' + exts[i++];
-        }
-        img.onerror = next;
-        next();
-      });
-
-      /* Click a photo to enlarge; click again or press Esc to close */
-      var lb = document.getElementById('lightbox');
-      var lbImg = lb.querySelector('img');
-      function close(){ lb.classList.remove('open'); lb.setAttribute('aria-hidden','true'); }
-      document.querySelectorAll('img[data-photo]').forEach(function(img){
-        img.addEventListener('click', function(){
-          lbImg.src = img.src;
-          lbImg.alt = img.alt;
-          lb.classList.add('open');
-          lb.setAttribute('aria-hidden','false');
-        });
-      });
-      lb.addEventListener('click', close);
-      document.addEventListener('keydown', function(e){ if (e.key === 'Escape') close(); });
-    })();
-  </script>
-</body>
-</html>
+<!-- ===== 4. PHONE CASE ===== -->
+<section class="proj-section" id="phone-case">
+  <div class="proj-title-row">
+    <h2>SharkSafe — Biomimetic Antibacterial Phone Case <span class="proj-tools">— SolidWorks</span></h2>
+  </div>
+  <div class="proj-sub-row">
+    <p class="proj-sub">MDL CADathon · 1st Place · 2025 · Team of 4</p>
+  </div>
+  <div class="media-row cols-3">
+    <figure class="photo"><img data-photo="10" alt="SharkSafe phone case render 10"><span class="ph"><b>10</b>Add photo</span></figure>
+    <figure class="photo"><img data-photo="11" alt="SharkSafe phone case render 11"><span class="ph"><b>11</b>Add photo</span></figure>
+    <figure class="photo"><img data-photo="12" alt="SharkSafe phone case render 12"><span class="ph"><b>12</b>Add photo</span></figure>
+  </div>
+  <div class="whr-grid">
+    <div class="whr-col">
+      <h3>What?</h3>
+      <ul>
+        <li><strong>Purely mechanical antibacterial phone case</strong> using shark-skin micropatterns to prevent biofilm formation</li>
+        <li>Inhibits bacterial colonization with zero chemical agents or toxic coatings</li>
+      </ul>
+    </div>
+    <div class="whr-col">
+      <h3>How?</h3>
+      <ul>
+        <li><strong>CAD & Surface Design:</strong> modeled 2 µm wide, 0.4 µm high micro-riblets in SolidWorks optimized via fluid dynamics research</li>
+        <li><strong>Materials & DFM:</strong> selected flax-reinforced Ecoflex bioplastic molded via laser-ablated tooling</li>
+        <li><strong>Pitch:</strong> developed financial, manufacturing, and commercial strategy for live judging</li>
+      </ul>
+    </div>
+    <div class="whr-col">
+      <h3>Results</h3>
+      <ul>
+        <li><strong>1st Place overall out of 20 competing teams</strong> following technical pitch presentation</li>
+        <li>Engineered a sustainable $5/unit manufacturing model targeted for commercial scale</li>
+      </ul>
+    </div>
+  </div>
+</section>
