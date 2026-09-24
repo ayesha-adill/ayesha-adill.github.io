@@ -27,186 +27,204 @@
       background:var(--lilac-bg);
       color:var(--plum);
       font-family:'Inter', sans-serif;
-      line-height:1.45;
+      line-height:1.55;
       -webkit-font-smoothing:antialiased;
+    }
+    @media (prefers-reduced-motion: reduce){
+      html{ scroll-behavior:auto; }
+      *{ animation-duration:0.01ms !important; transition-duration:0.01ms !important; }
     }
     a{ color:inherit; }
 
-    /* ================= HEADER ================= */
-    .header-card {
-      max-width: var(--maxw);
-      margin: 30px auto 20px;
-      padding: 24px 30px;
-      background: var(--white);
-      border: 1.5px solid var(--lilac-soft);
-      border-radius: var(--radius);
-      text-align: center;
+    /* ================= LANDING (ORIGINAL) ================= */
+    .landing{
+      height:100vh; min-height:550px;
+      display:flex; flex-direction:column; justify-content:center; align-items:center;
+      text-align:center; padding:0 24px;
+      background:linear-gradient(180deg, var(--white) 0%, var(--lilac-bg) 100%);
+      position:relative;
     }
-    .header-card h1 {
-      font-family: 'Fraunces', serif;
-      font-weight: 600;
-      font-size: 2.2rem;
-      margin: 0 0 6px 0;
-      color: var(--plum);
+    .landing h1{
+      font-family:'Fraunces', serif; font-weight:600;
+      font-size:clamp(2.5rem, 7vw, 4.2rem);
+      margin:0 0 12px 0; color:var(--plum); line-height:1.1;
     }
-    .header-card p {
-      font-size: 1rem;
-      color: var(--plum-soft);
-      margin: 0 0 12px 0;
-      font-weight: 500;
+    .landing p{
+      font-size:clamp(1rem, 2.5vw, 1.25rem);
+      color:var(--plum-soft); margin:0 0 12px 0; font-weight:500;
     }
-    .landing-links {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 16px;
-      flex-wrap: wrap;
+    .landing-links{
+      display:flex; align-items:center; justify-content:center;
+      gap:16px; flex-wrap:wrap; margin-bottom:16px;
     }
-    .landing-links a.link-item {
-      font-size: 0.9rem;
-      font-weight: 500;
-      color: var(--plum-soft);
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
+    .landing-links a.link-item{
+      font-size:0.9rem; font-weight:500; color:var(--plum-soft);
+      text-decoration:none; display:inline-flex; align-items:center; gap:8px;
+      transition:color .15s ease;
     }
-    .landing-links .sep { color: var(--lilac-soft); font-size: 0.9rem; }
-    .landing-links .icon { width: 15px; height: 15px; stroke: var(--lilac-border); fill: none; stroke-width: 1.8; }
+    .landing-links a.link-item:hover{ color:var(--plum); }
+    .landing-links .sep{ color:var(--lilac-soft); font-size:0.9rem; }
+    .landing-links .icon{ width:16px; height:16px; flex-shrink:0; stroke:var(--lilac-border); fill:none; stroke-width:1.8; }
+    .landing-btn-container{ display:flex; justify-content:center; margin-bottom:20px; }
+    .btn{
+      font-size:0.88rem; font-weight:600; letter-spacing:0.01em;
+      text-decoration:none; padding:10px 22px; border-radius:8px;
+      transition:transform .18s ease, box-shadow .18s ease, background .18s ease;
+      display:inline-flex; align-items:center; gap:8px;
+    }
+    .btn-primary{ background:var(--lilac-border); color:#fff; }
+    .btn-primary:hover{ background:#7a5aa6; transform:translateY(-2px); box-shadow:0 8px 20px rgba(139,107,184,0.3); }
+    .scroll-prompt{
+      position:absolute; bottom:32px;
+      display:flex; flex-direction:column; align-items:center; gap:8px;
+      color:var(--lilac-border); text-decoration:none;
+      font-size:0.75rem; font-weight:600; letter-spacing:0.05em; text-transform:uppercase;
+      transition:transform 0.2s ease;
+    }
+    .scroll-prompt:hover{ transform:translateY(3px); }
+    .scroll-prompt svg{ width:20px; height:20px; stroke:var(--lilac-border); fill:none; stroke-width:2; }
 
     /* ================= PROJECTS ================= */
-    main { padding: 0 24px 60px; }
-    .proj-section {
-      max-width: var(--maxw);
-      margin: 0 auto 30px;
-      background: var(--white);
-      border: 1.5px solid var(--lilac-soft);
-      border-radius: var(--radius);
-      padding: 28px 32px;
+    main{ padding:60px 24px 100px; }
+    .proj-section{
+      max-width:var(--maxw); margin:0 auto 56px;
+      background:var(--white);
+      border:1.5px solid var(--lilac-soft);
+      border-radius:var(--radius);
+      padding:40px 40px 44px;
     }
-    .proj-title-row {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      gap: 12px;
-      margin-bottom: 4px;
-      flex-wrap: wrap;
+    @media (max-width:640px){ .proj-section{ padding:28px 22px 32px; } }
+    .proj-title-row{
+      display:flex; align-items:baseline; justify-content:space-between;
+      gap:12px; margin-bottom:6px; flex-wrap:wrap;
     }
-    .proj-title-row h2 {
-      font-family: 'Fraunces', serif;
-      font-weight: 600;
-      font-size: 1.45rem;
-      margin: 0;
-      color: var(--plum);
+    .proj-title-row h2{
+      font-family:'Fraunces', serif; font-weight:600;
+      font-size:clamp(1.3rem, 3vw, 1.65rem); margin:0; color:var(--plum);
     }
-    .proj-tools { font-family: 'Inter', sans-serif; font-weight: 400; font-size: 0.88rem; color: var(--plum-soft); }
-    .proj-sub-row { display: flex; align-items: center; gap: 10px; margin: 0 0 16px 0; flex-wrap: wrap; }
-    .proj-sub {
-      font-size: 0.78rem;
-      color: var(--lilac-border);
-      font-weight: 600;
-      letter-spacing: 0.03em;
-      text-transform: uppercase;
-      margin: 0;
+    .proj-tools{ font-family:'Inter', sans-serif; font-weight:400; font-size:0.95rem; color:var(--plum-soft); }
+    .proj-sub-row{ display:flex; align-items:center; gap:10px; margin:0 0 26px 0; flex-wrap:wrap; }
+    .proj-sub{
+      font-size:0.8rem; color:var(--lilac-border); font-weight:600;
+      letter-spacing:0.03em; text-transform:uppercase; margin:0;
     }
-    .nda-tag {
-      display: inline-flex; align-items: center; gap: 6px;
-      background: #f1ecf7; color: var(--plum-soft);
-      border: 1px solid var(--lilac-soft);
-      font-size: 0.65rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase;
-      padding: 2px 8px; border-radius: 20px;
+    .nda-tag{
+      display:inline-flex; align-items:center; gap:6px;
+      background:#f1ecf7; color:var(--plum-soft);
+      border:1px solid var(--lilac-soft);
+      font-size:0.68rem; font-weight:700; letter-spacing:0.04em; text-transform:uppercase;
+      padding:3px 10px; border-radius:20px;
     }
-    .nda-tag::before { content: ""; display: inline-block; width: 5px; height: 5px; border-radius: 50%; background: var(--lilac-border); }
-    .nda-notice {
-      background: #f1ecf7;
-      border: 1px solid var(--lilac-soft);
-      border-left: 4px solid var(--lilac-border);
-      border-radius: 8px;
-      padding: 10px 14px; margin: 0 0 18px 0;
-      font-size: 0.82rem; color: var(--plum-soft);
+    .nda-tag::before{
+      content:""; display:inline-block; width:6px; height:6px;
+      border-radius:50%; background:var(--lilac-border);
     }
+    .nda-notice{
+      background:#f1ecf7;
+      border:1.5px solid var(--lilac-soft);
+      border-left:4px solid var(--lilac-border);
+      border-radius:10px;
+      padding:14px 18px; margin:0 0 26px 0;
+      font-size:0.85rem; color:var(--plum-soft);
+    }
+    .nda-notice strong{ color:var(--plum); }
 
-    /* ---- Media & Photos ---- */
-    .media-row { display: grid; gap: 12px; margin-bottom: 18px; }
-    .media-row.cols-2 { grid-template-columns: repeat(2, 1fr); }
-    .media-row.cols-3 { grid-template-columns: repeat(3, 1fr); }
-    .photo {
-      margin: 0; position: relative; aspect-ratio: 16/9;
-      border-radius: 8px; overflow: hidden;
-      background: var(--white); border: 1px solid #e6e6ec;
+    /* ---- Photos ---- */
+    .media-row{ display:grid; gap:16px; margin-bottom:30px; }
+    .media-row.cols-2{ grid-template-columns:repeat(2, 1fr); }
+    .media-row.cols-3{ grid-template-columns:repeat(3, 1fr); }
+    @media (max-width:700px){
+      .media-row.cols-2, .media-row.cols-3{ grid-template-columns:1fr; }
     }
-    .photo img { width: 100%; height: 100%; object-fit: contain; display: block; cursor: zoom-in; }
-    .photo .ph {
-      display: none; position: absolute; inset: 0;
-      flex-direction: column; align-items: center; justify-content: center; gap: 2px;
-      border: 1.5px dashed var(--lilac-soft); border-radius: 8px;
-      color: var(--lilac-border); font-size: 0.7rem; font-weight: 600; text-align: center; padding: 8px;
+    .photo{
+      margin:0; position:relative; aspect-ratio:4/3;
+      border-radius:10px; overflow:hidden;
+      background:var(--white); border:1px solid #e6e6ec;
     }
-    .photo.missing img { display: none; }
-    .photo.missing .ph { display: flex; }
-
-    /* ---- Poster ---- */
-    .poster { margin: 0 0 14px; position: relative; border-radius: 8px; overflow: hidden; background: var(--white); border: 1px solid #e6e6ec; }
-    .poster img { width: 100%; height: auto; display: block; cursor: zoom-in; max-height: 200px; object-fit: contain; }
-    .poster figcaption { font-size: 0.75rem; color: var(--plum-soft); text-align: center; padding: 4px; background: var(--white); }
-    .poster .ph {
-      display: none; min-height: 140px;
-      flex-direction: column; align-items: center; justify-content: center; gap: 2px;
-      border: 1.5px dashed var(--lilac-soft); border-radius: 8px;
-      color: var(--lilac-border); font-size: 0.72rem; font-weight: 600; text-align: center; padding: 8px;
+    .photo img{ width:100%; height:100%; object-fit:contain; display:block; cursor:zoom-in; }
+    .photo .ph{
+      display:none; position:absolute; inset:0;
+      flex-direction:column; align-items:center; justify-content:center; gap:4px;
+      border:1.5px dashed var(--lilac-soft); border-radius:10px;
+      color:var(--lilac-border); font-size:0.72rem; font-weight:600; text-align:center; padding:12px;
     }
-    .poster.missing img, .poster.missing figcaption { display: none; }
-    .poster.missing .ph { display: flex; }
+    .photo .ph b{ font-size:1.4rem; line-height:1; font-weight:600; }
+    .photo.missing{ border:none; }
+    .photo.missing img{ display:none; }
+    .photo.missing .ph{ display:flex; }
 
-    /* ---- Lightbox ---- */
-    .lightbox {
-      display: none; position: fixed; inset: 0; z-index: 1000;
-      background: rgba(0,0,0,0.88); align-items: center; justify-content: center;
-      padding: 24px; cursor: zoom-out;
+    /* ---- Large poster image ---- */
+    .poster{ margin:0 0 16px; position:relative; border-radius:10px; overflow:hidden; background:var(--white); border:1px solid #e6e6ec; }
+    .poster img{ width:100%; height:auto; display:block; cursor:zoom-in; }
+    .poster figcaption{ font-size:0.78rem; color:var(--plum-soft); text-align:center; padding:10px 12px 12px; background:var(--white); }
+    .poster .ph{
+      display:none; min-height:320px;
+      flex-direction:column; align-items:center; justify-content:center; gap:4px;
+      border:1.5px dashed var(--lilac-soft); border-radius:10px;
+      color:var(--lilac-border); font-size:0.78rem; font-weight:600; text-align:center; padding:12px;
     }
-    .lightbox.open { display: flex; }
-    .lightbox img { max-width: 100%; max-height: 100%; object-fit: contain; }
+    .poster .ph b{ font-size:1.4rem; line-height:1; font-weight:600; }
+    .poster.missing{ border:none; }
+    .poster.missing img, .poster.missing figcaption{ display:none; }
+    .poster.missing .ph{ display:flex; }
 
-    /* ---- WHR Grid ---- */
-    .whr-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-    .whr-col h3 {
-      font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;
-      color: var(--lilac-border); margin: 0 0 8px;
+    /* ---- Click-to-enlarge ---- */
+    .lightbox{
+      display:none; position:fixed; inset:0; z-index:1000;
+      background:rgba(0,0,0,0.88); align-items:center; justify-content:center;
+      padding:24px; cursor:zoom-out;
     }
-    .whr-col ul { margin: 0; padding-left: 14px; display: flex; flex-direction: column; gap: 6px; }
-    .whr-col li { font-size: 0.82rem; color: var(--plum); line-height: 1.35; }
+    .lightbox.open{ display:flex; }
+    .lightbox img{ max-width:100%; max-height:100%; object-fit:contain; }
 
-    footer { text-align: center; padding: 0 24px 30px; }
-    footer p { font-size: 0.75rem; color: var(--plum-soft); }
+    /* ---- What / How / Results ---- */
+    .whr-grid{ display:grid; grid-template-columns:repeat(3, 1fr); gap:28px; }
+    @media (max-width:700px){ .whr-grid{ grid-template-columns:1fr; gap:22px; } }
+    .whr-col h3{
+      font-size:0.78rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em;
+      color:var(--lilac-border); margin:0 0 12px;
+    }
+    .whr-col ul{ margin:0; padding-left:18px; display:flex; flex-direction:column; gap:8px; }
+    .whr-col li{ font-size:0.87rem; color:var(--plum); }
+    .whr-col li::marker{ color:var(--lilac-border); }
 
-    /* ================= PRINT / PDF (LETTER SIZE) ================= */
+    footer{ text-align:center; padding:0 24px 60px; }
+    footer p{ font-size:0.78rem; color:var(--plum-soft); }
+    a:focus-visible, .btn:focus-visible{ outline:2px solid var(--lilac-border); outline-offset:3px; }
+
+    /* ================= PRINT / PDF (A4 SPECIFIC) ================= */
     @media print {
       @page {
-        size: letter portrait;
-        margin: 0.4in 0.4in;
+        size: A4 portrait;
+        margin: 8mm 10mm;
       }
       body {
         background: #ffffff !important;
         color: #000000 !important;
-        font-size: 9.5pt !important;
+        font-size: 8.5pt !important;
+        line-height: 1.25 !important;
       }
-      .header-card {
-        border: none !important;
-        margin: 0 0 10px 0 !important;
-        padding: 0 0 10px 0 !important;
-        border-bottom: 1.5px solid var(--lilac-soft) !important;
-        border-radius: 0 !important;
+
+      /* Compact header at the top of Page 1 */
+      .landing {
+        height: auto !important;
+        min-height: 0 !important;
+        padding: 0 0 8px 0 !important;
+        background: none !important;
       }
-      .header-card h1 { font-size: 1.8rem !important; }
-      .header-card p { font-size: 0.9rem !important; margin-bottom: 6px !important; }
+      .landing h1 { font-size: 1.6rem !important; margin-bottom: 2px !important; }
+      .landing p { font-size: 0.85rem !important; margin-bottom: 4px !important; }
+      .landing-links { margin-bottom: 0 !important; }
+      .landing-links a.link-item { font-size: 0.75rem !important; }
+      .scroll-prompt, .landing-btn-container, .lightbox { display: none !important; }
 
       main { padding: 0 !important; }
-      
+
       .proj-section {
         border: 1px solid var(--lilac-soft) !important;
-        border-radius: 10px !important;
-        padding: 16px 18px !important;
-        margin-bottom: 0 !important;
+        border-radius: 8px !important;
+        padding: 12px 14px !important;
+        margin: 0 0 0 0 !important;
         page-break-inside: avoid !important;
         break-inside: avoid !important;
         page-break-after: always !important;
@@ -217,21 +235,29 @@
         break-after: auto !important;
       }
 
-      /* Fits Biofill + Header together on Page 1 */
-      #biofill .poster img { max-height: 120px !important; }
-      #biofill .photo { aspect-ratio: 16/7 !important; }
-      #biofill .media-row { margin-bottom: 10px !important; }
+      .proj-title-row h2 { font-size: 1.1rem !important; }
+      .proj-tools { font-size: 0.75rem !important; }
+      .proj-sub-row { margin-bottom: 8px !important; }
 
-      .photo, .poster { page-break-inside: avoid !important; break-inside: avoid !important; }
-      .lightbox { display: none !important; }
-      footer { padding: 10px 0 !important; }
+      /* Biofill specific sizing to fit Page 1 alongside Header */
+      #biofill .poster { margin-bottom: 6px !important; }
+      #biofill .poster img { max-height: 125px !important; object-fit: contain !important; }
+      #biofill .media-row { grid-template-columns: repeat(2, 1fr) !important; gap: 8px !important; margin-bottom: 8px !important; }
+      #biofill .photo { aspect-ratio: 16/7 !important; }
+
+      .whr-grid { gap: 10px !important; }
+      .whr-col h3 { font-size: 0.65rem !important; margin-bottom: 4px !important; }
+      .whr-col ul { padding-left: 12px !important; gap: 3px !important; }
+      .whr-col li { font-size: 0.75pt !important; line-height: 1.2 !important; }
+
+      footer { padding: 8px 0 !important; }
     }
   </style>
 </head>
 <body>
 
-  <!-- ===== HEADER ===== -->
-  <header class="header-card">
+  <!-- ===== LANDING ===== -->
+  <section class="landing">
     <h1>Ayesha Adil</h1>
     <p>Mechanical &amp; Biomedical Engineering Graduate — McMaster University</p>
     <div class="landing-links">
@@ -245,7 +271,14 @@
         LinkedIn
       </a>
     </div>
-  </header>
+    <div class="landing-btn-container">
+      <a class="btn btn-primary" href="resume.pdf" target="_blank" rel="noopener">View Resume</a>
+    </div>
+    <a href="#projects" class="scroll-prompt">
+      Scroll for projects
+      <svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5"/></svg>
+    </a>
+  </section>
 
   <main id="projects">
 
@@ -254,7 +287,7 @@
       <div class="proj-title-row">
         <h2>Biofill — Automated Syringe-Filling Device <span class="proj-tools">— Inventor, Arduino (C++), FEA, Excel, 3D Printing</span></h2>
       </div>
-      <div class="proj-sub-row">
+      <div class="proj-sub-row" style="margin-bottom:12px;">
         <p class="proj-sub">Capstone Project · 2026 · Team of 4 · Patent Pending</p>
       </div>
       <figure class="poster">
@@ -280,8 +313,9 @@
           <ul>
             <li><strong>Mechanical:</strong> table-lift drive, twist-and-lock piston, sliding tray, PTFE bearing pads</li>
             <li><strong>Enclosure:</strong> 3D-printed and cleanable for gloved use, with a BOM under $1,500</li>
-            <li><strong>Electronics &amp; Code:</strong> Arduino C++ for 2 stepper motors with auto piston retraction</li>
+            <li><strong>Electronics and code:</strong> Arduino C++ for 2 stepper motors, with homing, adjustable volume, and auto piston retraction</li>
             <li><strong>Validation:</strong> torque test rig; accuracy verified by weighing syringes over repeated trials</li>
+            <li><strong>Failure analysis:</strong> FEA and testing of piston detachment and lock shear</li>
           </ul>
         </div>
         <div class="whr-col">
@@ -289,7 +323,7 @@
           <ul>
             <li><strong>10× faster</strong> (about 1 min per syringe), with lower contamination risk</li>
             <li><strong>±0.05 mL</strong> accuracy, ≤1 mL dead volume</li>
-            <li><strong>Adopted</strong> by client with full engineering package delivered for scale-up</li>
+            <li><strong>Adopted</strong> by the client, with a full engineering package delivered for scale-up</li>
             <li><strong>Co-inventor</strong> on a patent-pending design</li>
           </ul>
         </div>
@@ -312,7 +346,7 @@
         <div class="whr-col">
           <h3>What?</h3>
           <ul>
-            <li>Electromechanical <strong>IUD insertion device</strong> consolidating <strong>3 clinical instruments into 1 system</strong></li>
+            <li>Electromechanical <strong>IUD insertion device</strong> that consolidates <strong>3 clinical instruments into 1 system</strong></li>
             <li>Two-part design: a suction section and a gel-dispensing section</li>
             <li>Built to improve patient comfort and streamline the insertion procedure</li>
           </ul>
@@ -321,17 +355,18 @@
           <h3>How?</h3>
           <ul>
             <li><strong>Design:</strong> sized both sections around gel volume and standard dosing requirements</li>
-            <li><strong>Prototyping:</strong> 5 3D-printed iterations, fixing tolerance, sizing, and ergonomic failures</li>
-            <li><strong>Clinician input:</strong> interviewed 3 clinicians and turned feedback into design requirements</li>
-            <li><strong>Risk &amp; Compliance:</strong> FMEA risk analysis and design spec sheet against ISO 10993/14971</li>
+            <li><strong>Prototyping:</strong> 5 3D-printed iterations, fixing tolerance, sizing, and ergonomic failures; tracked in Excel test plans</li>
+            <li><strong>Clinician input:</strong> interviewed 3 clinicians and turned their feedback into design requirements</li>
+            <li><strong>Manufacturability:</strong> GD&amp;T drawings, and design-for-manufacturing reviews with manufacturers</li>
+            <li><strong>Risk and compliance:</strong> FMEA risk analysis and a design spec sheet against ISO 10993 and ISO 14971</li>
           </ul>
         </div>
         <div class="whr-col">
           <h3>Results</h3>
           <ul>
             <li><strong>3 instruments → 1</strong> unified system</li>
-            <li>Co-authored technical specifications for the <strong>FDA 510(k)</strong> pathway</li>
-            <li>Helped win <strong>$10,000+</strong> in startup pitch awards through cost and market analysis</li>
+            <li>Co-authored the technical specifications for the <strong>FDA 510(k)</strong> pathway</li>
+            <li>Helped win <strong>$10,000+</strong> in startup pitch awards through cost tracking, grant search, and market analysis</li>
           </ul>
         </div>
       </div>
