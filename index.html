@@ -36,7 +36,7 @@
     }
     a{ color:inherit; }
 
-    /* ================= LANDING (ORIGINAL) ================= */
+    /* ================= LANDING ================= */
     .landing{
       height:100vh; min-height:550px;
       display:flex; flex-direction:column; justify-content:center; align-items:center;
@@ -129,7 +129,7 @@
     }
     .nda-notice strong{ color:var(--plum); }
 
-    /* ---- Photos ---- */
+    /* ---- Photos: files named 1, 2, 3... in images/ ---- */
     .media-row{ display:grid; gap:16px; margin-bottom:30px; }
     .media-row.cols-2{ grid-template-columns:repeat(2, 1fr); }
     .media-row.cols-3{ grid-template-columns:repeat(3, 1fr); }
@@ -153,7 +153,7 @@
     .photo.missing img{ display:none; }
     .photo.missing .ph{ display:flex; }
 
-    /* ---- Large poster image ---- */
+    /* ---- Large poster image (full width, uncropped) ---- */
     .poster{ margin:0 0 16px; position:relative; border-radius:10px; overflow:hidden; background:var(--white); border:1px solid #e6e6ec; }
     .poster img{ width:100%; height:auto; display:block; cursor:zoom-in; }
     .poster figcaption{ font-size:0.78rem; color:var(--plum-soft); text-align:center; padding:10px 12px 12px; background:var(--white); }
@@ -192,84 +192,68 @@
     footer p{ font-size:0.78rem; color:var(--plum-soft); }
     a:focus-visible, .btn:focus-visible{ outline:2px solid var(--lilac-border); outline-offset:3px; }
 
-    /* ================= PRINT / PDF (CLEAN & FULL-WIDTH) ================= */
+    /* ================= PRINT / PDF: title page + one page per project ================= */
     @media print {
-      @page {
-        size: letter portrait;
-        margin: 12mm 15mm;
-      }
-      body {
-        background: #ffffff !important;
-        color: var(--plum) !important;
-        font-size: 9.5pt !important;
-        line-height: 1.4 !important;
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
-      }
+      @page { size: letter portrait; margin: 12mm 14mm; }
 
-      /* Clean Header at top of PDF */
+      /* Tweak these two if a page overflows or looks too empty */
+      :root { --poster-h: 3.9in; --photo-h: 1.9in; }
+
+      * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      html { scroll-behavior: auto; }
+      body { background: #ffffff !important; font-size: 10pt; line-height: 1.4; }
+
+      /* ---- Title page: centered, its own page ---- */
       .landing {
-        height: auto !important;
-        min-height: 0 !important;
-        padding: 0 0 16px 0 !important;
-        background: none !important;
-        border-bottom: 2px solid var(--lilac-soft) !important;
-        margin-bottom: 20px !important;
+        height: 235mm; min-height: 0; padding: 0; background: none;
+        justify-content: center; align-items: center; text-align: center;
+        break-after: page; page-break-after: always;
       }
-      .landing h1 { font-size: 2.2rem !important; margin-bottom: 4px !important; color: var(--plum) !important; }
-      .landing p { font-size: 1rem !important; margin-bottom: 8px !important; color: var(--plum-soft) !important; }
-      .landing-links { margin-bottom: 0 !important; gap: 16px !important; }
-      .landing-links a.link-item { font-size: 0.85rem !important; color: var(--plum-soft) !important; }
-      .scroll-prompt, .landing-btn-container, .lightbox { display: none !important; }
+      .landing h1 { font-size: 42pt; margin: 0; }
+      .landing h1::after {
+        content: ""; display: block; width: 64px; height: 3px;
+        background: var(--lilac-border); margin: 16px auto 0;
+      }
+      .landing p { font-size: 14pt; margin: 16px 0 18px; }
+      .landing-links { margin: 0; gap: 14px; }
+      .landing-links a.link-item { font-size: 11pt; }
+      .landing-btn-container, .scroll-prompt, .lightbox, footer { display: none !important; }
 
-      main { padding: 0 !important; }
-
-      /* Remove harsh box borders for a clean presentation */
+      /* ---- One project per page ---- */
+      main { padding: 0; }
       .proj-section {
-        border: none !important;
-        border-radius: 0 !important;
-        padding: 0 !important;
-        margin: 0 0 32px 0 !important;
-        page-break-inside: avoid !important;
-        break-inside: avoid !important;
-        page-break-after: auto !important;
-        break-after: auto !important;
+        max-width: none; margin: 0; padding: 0;
+        border: none; border-radius: 0; background: none;
+        break-after: page; page-break-after: always;
+        break-inside: avoid; page-break-inside: avoid;
       }
+      .proj-section:last-of-type { break-after: auto; page-break-after: auto; }
 
-      .proj-title-row h2 { font-size: 1.35rem !important; color: var(--plum) !important; }
-      .proj-tools { font-size: 0.85rem !important; color: var(--plum-soft) !important; }
-      .proj-sub { font-size: 0.8rem !important; color: var(--lilac-border) !important; }
-      .proj-sub-row { margin-bottom: 14px !important; }
+      /* ---- Headings ---- */
+      .proj-title-row { margin-bottom: 4px; }
+      .proj-title-row h2 { font-size: 18pt; line-height: 1.2; }
+      .proj-tools { font-size: 10pt; }
+      .proj-sub-row { margin: 0 0 12px; }
+      .proj-sub { font-size: 8.5pt; }
+      .nda-tag { font-size: 7pt; }
+      .nda-notice { font-size: 9.5pt; margin-bottom: 16px; }
 
-      /* Expanded, full-width figures */
-      .poster, .photo {
-        border: none !important;
-        border-radius: 6px !important;
-        background: transparent !important;
-        width: 100% !important;
-      }
-      .poster img {
-        width: 100% !important;
-        max-height: 280px !important;
-        object-fit: contain !important;
-      }
-      .poster figcaption {
-        font-size: 0.8rem !important;
-        padding: 4px 0 10px 0 !important;
-        color: var(--plum-soft) !important;
-      }
+      /* ---- Images (empty placeholders are hidden in the PDF) ---- */
+      .photo.missing, .poster.missing { display: none !important; }
+      .poster { margin: 0 0 10px; border: none; border-radius: 0; background: none; }
+      .poster img { width: 100%; height: var(--poster-h); object-fit: contain; }
+      .poster figcaption { font-size: 8.5pt; padding: 4px 0 0; }
+      .media-row { gap: 10px; margin-bottom: 14px; }
+      .media-row.cols-2 { grid-template-columns: repeat(2, 1fr) !important; }
+      .media-row.cols-3 { grid-template-columns: repeat(3, 1fr) !important; }
+      .photo { aspect-ratio: auto; height: var(--photo-h); border: 1px solid #e6e6ec; border-radius: 6px; }
+      .photo img { object-fit: contain; }
 
-      /* Clean media layouts */
-      .media-row { gap: 12px !important; margin-bottom: 16px !important; }
-      .photo { aspect-ratio: 16/9 !important; }
-
-      /* High readability grid text */
-      .whr-grid { gap: 16px !important; }
-      .whr-col h3 { font-size: 0.75rem !important; color: var(--lilac-border) !important; margin-bottom: 6px !important; }
-      .whr-col ul { padding-left: 14px !important; gap: 4px !important; }
-      .whr-col li { font-size: 0.85pt !important; line-height: 1.35 !important; color: var(--plum) !important; }
-
-      footer { padding: 16px 0 0 0 !important; border-top: 1px solid var(--lilac-wash) !important; }
+      /* ---- What / How / Results: readable size ---- */
+      .whr-grid { grid-template-columns: repeat(3, 1fr) !important; gap: 18px; }
+      .whr-col h3 { font-size: 8.5pt; margin-bottom: 6px; }
+      .whr-col ul { padding-left: 14px; gap: 5px; }
+      .whr-col li { font-size: 9.5pt; line-height: 1.38; }
     }
   </style>
 </head>
@@ -391,7 +375,46 @@
       </div>
     </section>
 
-    <!-- ===== 3. GAIT ANALYSIS ===== -->
+    <!-- ===== 3. PHONE CASE — photos 10-12 ===== -->
+    <section class="proj-section" id="phone-case">
+      <div class="proj-title-row">
+        <h2>SharkSafe — Biomimetic Antibacterial Phone Case <span class="proj-tools">— SolidWorks</span></h2>
+      </div>
+      <div class="proj-sub-row">
+        <p class="proj-sub">MDL CADathon · 1st Place (Out of 20 Teams) · 2025 · Team of 4</p>
+      </div>
+      <div class="media-row cols-3">
+        <figure class="photo"><img data-photo="10" alt="SharkSafe phone case render 10"><span class="ph"><b>10</b>Add photo</span></figure>
+        <figure class="photo"><img data-photo="11" alt="SharkSafe phone case render 11"><span class="ph"><b>11</b>Add photo</span></figure>
+        <figure class="photo"><img data-photo="12" alt="SharkSafe phone case render 12"><span class="ph"><b>12</b>Add photo</span></figure>
+      </div>
+      <div class="whr-grid">
+        <div class="whr-col">
+          <h3>What?</h3>
+          <ul>
+            <li><strong>Purely mechanical antibacterial phone case</strong> using shark-skin micropatterns to prevent biofilm formation</li>
+            <li>Inhibits bacterial growth naturally with zero chemical coatings or additives</li>
+          </ul>
+        </div>
+        <div class="whr-col">
+          <h3>How?</h3>
+          <ul>
+            <li><strong>Surface Design:</strong> Modeled 2 µm wide, 0.4 µm high riblet topographies in SolidWorks</li>
+            <li><strong>Materials:</strong> Ecoflex bioplastic elastomer reinforced with flax straw fibers</li>
+            <li><strong>Manufacturing:</strong> Designed laser-ablated molds and a two-step injection molding workflow</li>
+          </ul>
+        </div>
+        <div class="whr-col">
+          <h3>Results</h3>
+          <ul>
+            <li>Won <strong>1st Place out of 20 teams</strong> at the MDL CADathon following a final pitch presentation</li>
+            <li>Developed business plan featuring $5 unit cost, $25 MSRP, and a $50k startup roadmap</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 4. GAIT ANALYSIS — photos 5-7 ===== -->
     <section class="proj-section" id="gait-analysis">
       <div class="proj-title-row">
         <h2>Pediatric Cerebral Palsy Remote Gait Analysis Device <span class="proj-tools">— ESP32, BNO055, FSR, Python, Inventor</span></h2>
@@ -432,45 +455,6 @@
       </div>
     </section>
 
-    <!-- ===== 4. PHONE CASE ===== -->
-    <section class="proj-section" id="phone-case">
-      <div class="proj-title-row">
-        <h2>SharkSafe — Biomimetic Antibacterial Phone Case <span class="proj-tools">— SolidWorks</span></h2>
-      </div>
-      <div class="proj-sub-row">
-        <p class="proj-sub">MDL CADathon · 1st Place (Out of 20 Teams) · 2025 · Team of 4</p>
-      </div>
-      <div class="media-row cols-3">
-        <figure class="photo"><img data-photo="10" alt="SharkSafe phone case render 10"><span class="ph"><b>10</b>Add photo</span></figure>
-        <figure class="photo"><img data-photo="11" alt="SharkSafe phone case render 11"><span class="ph"><b>11</b>Add photo</span></figure>
-        <figure class="photo"><img data-photo="12" alt="SharkSafe phone case render 12"><span class="ph"><b>12</b>Add photo</span></figure>
-      </div>
-      <div class="whr-grid">
-        <div class="whr-col">
-          <h3>What?</h3>
-          <ul>
-            <li><strong>Purely mechanical antibacterial phone case</strong> using shark-skin micropatterns to prevent biofilm formation</li>
-            <li>Inhibits bacterial growth naturally with zero chemical coatings or additives</li>
-          </ul>
-        </div>
-        <div class="whr-col">
-          <h3>How?</h3>
-          <ul>
-            <li><strong>Surface Design:</strong> Modeled 2 µm wide, 0.4 µm high riblet topographies in SolidWorks</li>
-            <li><strong>Materials:</strong> Ecoflex bioplastic elastomer reinforced with flax straw fibers</li>
-            <li><strong>Manufacturing:</strong> Designed laser-ablated molds and a two-step injection molding workflow</li>
-          </ul>
-        </div>
-        <div class="whr-col">
-          <h3>Results</h3>
-          <ul>
-            <li>Won <strong>1st Place out of 20 teams</strong> at the MDL CADathon following a final pitch presentation</li>
-            <li>Developed business plan featuring $5 unit cost, $25 MSRP, and a $50k startup roadmap</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
   </main>
 
   <footer>
@@ -482,6 +466,7 @@
 
   <script>
     (function(){
+      /* Photo loader: looks for images/N.png, .jpg, .jpeg, .webp */
       var exts = ['png','jpg','jpeg','webp'];
       document.querySelectorAll('img[data-photo]').forEach(function(img){
         var n = img.getAttribute('data-photo'), i = 0;
@@ -493,6 +478,7 @@
         next();
       });
 
+      /* Click a photo to enlarge; click again or press Esc to close */
       var lb = document.getElementById('lightbox');
       var lbImg = lb.querySelector('img');
       function close(){ lb.classList.remove('open'); lb.setAttribute('aria-hidden','true'); }
