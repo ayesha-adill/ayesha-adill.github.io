@@ -221,12 +221,15 @@
 
   <main id="projects">
 
-    <!-- ===== 1. BIOFILL — title, poster (photo 4), photos 2-3, then subtitle + What/How/Results ===== -->
+    <!-- ===== 1. BIOFILL — title, caption, poster (photo 4), photos 2-3, then What/How/Results ===== -->
     <section class="proj-section" id="biofill">
       <div class="proj-title-row">
-        <h2>Biofill — Automated Syringe-Filling Device <span class="proj-tools">— Inventor, C++, Excel, 3D Printing</span></h2>
+        <h2>Biofill — Automated Syringe-Filling Device <span class="proj-tools">— Inventor, Arduino (C++), FEA, Excel, 3D Printing</span></h2>
       </div>
-      <figure class="poster" style="margin-top:16px;">
+      <div class="proj-sub-row" style="margin-bottom:16px;">
+        <p class="proj-sub">Capstone Project · 2026 · Team of 4 · Patent Pending</p>
+      </div>
+      <figure class="poster">
         <img data-photo="4" alt="Biofill capstone project poster">
         <span class="ph"><b>4</b>Add project poster</span>
         <figcaption>Capstone project poster</figcaption>
@@ -235,32 +238,32 @@
         <figure class="photo"><img data-photo="2" alt="Biofill device photo 2"><span class="ph"><b>2</b>Add photo</span></figure>
         <figure class="photo"><img data-photo="3" alt="Biofill device photo 3"><span class="ph"><b>3</b>Add photo</span></figure>
       </div>
-      <div class="proj-sub-row">
-        <p class="proj-sub">Patent Pending · Co-Inventor · Capstone Project</p>
-      </div>
       <div class="whr-grid">
         <div class="whr-col">
           <h3>What?</h3>
           <ul>
-            <li>Designed an automated bioink syringe-filling device for a biotech client</li>
-            <li>Fills 2–10 mL syringes inside a biosafety cabinet with tight volumetric control</li>
+            <li>Motor-actuated, <strong>table-lift syringe-filling machine</strong> for <strong>Tessella Biosciences</strong></li>
+            <li>Fills <strong>2–10 mL syringes</strong> with centrifuged gel inside a biosafety cabinet</li>
+            <li>Replaces a manual process that trapped air bubbles and couldn't scale</li>
           </ul>
         </div>
         <div class="whr-col">
           <h3>How?</h3>
           <ul>
-            <li>Built <strong>95% of components via 3D printing</strong>, designed in Autodesk Inventor</li>
-            <li>Programmed <strong>Arduino-based control logic in C++</strong> to automate the fill cycle</li>
-            <li>Validated housing with <strong>FEA</strong> and physical testing against motor force and piston loading</li>
-            <li>Investigated failure modes (piston detachment, locking mechanism shear) and corrected the design</li>
+            <li><strong>Mechanical:</strong> table-lift drive, twist-and-lock piston, sliding tray, PTFE bearing pads</li>
+            <li><strong>Enclosure:</strong> 3D-printed and cleanable for gloved use, with a BOM under $1,500</li>
+            <li><strong>Electronics and code:</strong> Arduino C++ for 2 stepper motors, with homing, adjustable volume, and auto piston retraction</li>
+            <li><strong>Validation:</strong> torque test rig; accuracy verified by weighing syringes over repeated trials</li>
+            <li><strong>Failure analysis:</strong> FEA and testing of piston detachment and lock shear</li>
           </ul>
         </div>
         <div class="whr-col">
           <h3>Results</h3>
           <ul>
-            <li>Achieved <strong>±0.05 mL fill accuracy</strong> with ≤1 mL dead volume per cycle</li>
-            <li>Adopted directly into client's active workflow</li>
-            <li>Authored invention disclosure supporting a formal patent application</li>
+            <li><strong>10× faster</strong> (about 1 min per syringe), with lower contamination risk</li>
+            <li><strong>±0.05 mL</strong> accuracy, ≤1 mL dead volume</li>
+            <li><strong>Adopted</strong> by the client, with a full engineering package delivered for scale-up</li>
+            <li><strong>Co-inventor</strong> on a patent-pending design</li>
           </ul>
         </div>
       </div>
@@ -269,7 +272,7 @@
     <!-- ===== 2. IUD DEVICE (NDA) — no photos ===== -->
     <section class="proj-section" id="refem">
       <div class="proj-title-row">
-        <h2>Dual Gel-Suction IUD Insertion Device <span class="proj-tools">— Onshape, Inventor, Fusion 360, 3D Printing</span></h2>
+        <h2>Dual Gel-Suction IUD Insertion Device <span class="proj-tools">— Onshape, Fusion 360, 3D Printing</span></h2>
       </div>
       <div class="proj-sub-row">
         <p class="proj-sub">ReFem Tech · FemTech Startup</p>
@@ -282,25 +285,27 @@
         <div class="whr-col">
           <h3>What?</h3>
           <ul>
-            <li>Designed a device consolidating <strong>three separate clinical instruments into one system</strong></li>
-            <li>Focused on improving patient comfort and streamlining gynecological insertion procedures</li>
+            <li>Electromechanical <strong>IUD insertion device</strong> that consolidates <strong>3 clinical instruments into 1 system</strong></li>
+            <li>Two-part design: a suction section and a gel-dispensing section</li>
+            <li>Built to improve patient comfort and streamline the insertion procedure</li>
           </ul>
         </div>
         <div class="whr-col">
           <h3>How?</h3>
           <ul>
-            <li>Designed in CAD; iterated through <strong>5 physical prototypes</strong> (3D-printed)</li>
-            <li>Participated in Root Cause Analysis to diagnose tolerance, sizing, and ergonomic failures</li>
-            <li>Ran <strong>FMEA</strong> risk assessments and researched <strong>ISO 10993 / ISO 14971</strong> compliance</li>
-            <li>Interviewed clinicians to shape mechanical design direction</li>
+            <li><strong>Design:</strong> sized both sections around gel volume and standard dosing requirements</li>
+            <li><strong>Prototyping:</strong> 5 3D-printed iterations, fixing tolerance, sizing, and ergonomic failures; tracked in Excel test plans</li>
+            <li><strong>Clinician input:</strong> interviewed 3 clinicians and turned their feedback into design requirements</li>
+            <li><strong>Manufacturability:</strong> GD&amp;T drawings, and design-for-manufacturing reviews with manufacturers</li>
+            <li><strong>Risk and compliance:</strong> FMEA risk analysis and a design spec sheet against ISO 10993 and ISO 14971</li>
           </ul>
         </div>
         <div class="whr-col">
           <h3>Results</h3>
           <ul>
-            <li>Consolidated 3 clinical tools into <strong>1 unified system</strong></li>
-            <li>Authored design specification sheet supporting <strong>FDA 510(k)</strong> submission pathway</li>
-            <li>Contributed to securing <strong>$10,000+</strong> in startup pitch awards</li>
+            <li><strong>3 instruments → 1</strong> unified system</li>
+            <li>Co-authored the technical specifications for the <strong>FDA 510(k)</strong> pathway</li>
+            <li>Helped win <strong>$10,000+</strong> in startup pitch awards through cost tracking, grant search, and market analysis</li>
           </ul>
         </div>
       </div>
